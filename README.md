@@ -1,1 +1,1 @@
-# ai-selfdirected-learning
+# My AI Self-Directed Learning
