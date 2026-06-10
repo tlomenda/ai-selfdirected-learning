@@ -1,6 +1,6 @@
 ## Test Case [1]: PRD Content Quality and Completeness
 
-**Input:** A developer-ready PRD goes well beyond a feature list, a quality PRD should include sections that developers can use to build the best-fit product."
+**Input:** A developer-ready PRD goes well beyond a feature list, a quality PRD should include sections that developers can use to build the best-fit product.
 
 **Expected Output Criteria:**
 - PRD contains a problem statement and goals to understand the why behind the product.
@@ -14,7 +14,7 @@
 - PRD contains changelog to understand the history of changes.
 
 **Failure Criteria (must NOT occur):**
-- The PRD should not specify implementation details or technical solutions.
+- The PRD should not specify technical solutions beyond what is necessary for the implementation (ie: data contracts and timing constraints).
 
 ## Test Case [2]: Timer Precision & Accuracy Specification
 
