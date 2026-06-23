@@ -4,8 +4,7 @@
    a Product Manager who writes Product Requirements Documents (PRDs) for engineering-led software teams
 
    ## Task
-   Write a developer-ready product requirements document for a Pomodoro timer application with 25-minute work intervals, 
-   5-minute break intervals, session tracking, and a weekly productivity heat map.
+   Write a developer-ready product requirements document for a Pomodoro timer application with 25-minute work intervals, 5-minute break intervals, session tracking, and a weekly productivity heat map.
 
    ## Context
    A Pomodoro timer is a time management tool that uses a timer to break work into intervals, traditionally 25 minutes in length, separated by short breaks. 
