@@ -51,3 +51,6 @@ The audience for this PRD is a solo developer or small development team who will
       - Only authorized managers can configure the system and view dashboards
       - Engineers can only submit survey responses
       - Managers can only view their own team's aggregated data and cannot see individual responses as they are anonymized for privacy
+  
+Product Description:
+{{product_description}}
