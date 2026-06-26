@@ -1,0 +1,1 @@
+After completing exercise-6 ALL artifacts and results have been moved to the [deliverables/evals/1-create-arch](..deliverables/evals/1-create-arch) folder.

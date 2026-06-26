@@ -1,0 +1,167 @@
+prompts:
+  - id: create-prd
+    raw: |
+      # Create PRD
+
+      ## Role
+      You are a Product Manager who writes Product Requirements Documents (PRDs) for engineering-led software teams
+
+      ## Task
+      Write a developer-ready product requirements document for a TeamPulse system that allows engineering managers to run anonymous, recurring pulse surveys with their teams. 
+
+      ## Context
+
+      TeamPulse is a lightweight team health check system.
+      
+      Engineers answer 5–7 questions on a weekly or bi-weekly schedule. Results are aggregated and displayed in a trend dashboard visible only to the manager. Individual responses remain anonymous — managers see team-level patterns, not individual attributions.
+
+      The engineering organization is using a React frontend, a Node.js backend, and a PostgreSQL database. The team uses GitHub for version control and Jira for issue tracking. Authentication is via the company's existing SSO system (Entra ID / OIDC).
+
+      Providing a developer-ready PRD requires not only the features but also the non-functional requirements, implementation environment, explicit scope boundaries, and open questions that must be resolved before implementation begins.
+
+      A change log section with version and date is required to track iterations and improvements to the PRD.
+
+      The audience for this PRD is a solo developer or small development team who will be building the TeamPulse system.
+
+      ## Constraints
+
+      1. The PRD requires the following sections:
+          - Product Overview (Problem Statement & Goals)
+          - Features (Personas, Use Cases & User Stories)
+          - Non-Functional Requirements with suggested tool or method for verification
+          - Key Implementation Details
+          - Scope Boundaries
+          - Open Questions
+          - Change Log
+      
+      2. Out of scope for V1:
+          - ML-based sentiment analysis
+          - Comparison across teams
+          - Integration with HR systems
+          - Mobile native apps
+
+      3. Key Requirements:
+          - Engineers receive a notification (email or Slack) with a link to a brief survey form
+          - Survey form is mobile-accessible and completable in under 3 minutes
+          - Managers have a dashboard showing trend lines over time for each question, with comparisons to prior periods
+          - All responses are stored anonymously — no individual attribution in any view, including admin views
+          - Managers can configure: question set, frequency (weekly/bi-weekly), and team membership
+          - The system supports multiple managers with separate teams; no cross-team visibility
+
+      4. Privacy & Authorization:
+          - Only authorized managers can configure the system and view dashboards
+          - Engineers can only submit survey responses
+          - Managers can only view their own team's aggregated data and cannot see individual responses as they are anonymized for privacy
+
+      Product Description:
+      {{product_description}}
+
+# Route llm-rubric grading through the Claude Code CLI — no API key needed
+defaultTest:
+  options:
+    provider: 'exec: node ./devin.js'
+
+providers:
+  - id: 'exec: node ./devin.js'
+    label: sonnet
+    config:
+      model: sonnet
+  - id: 'exec: node ./devin.js'
+    label: haiku
+    config:
+      model: haiku
+
+tests:
+  # Test Case 1: Required Sections Completeness
+  - vars:
+      product_description: |
+        The full TeamPulse product description as provided in the prompt.
+    assert:
+      - type: llm-rubric
+        value: "Contains all 7 required sections: Product Overview, Features, Non-Functional Requirements, Key Implementation Details, Scope Boundaries, Open Questions, and Change Log."
+      - type: llm-rubric
+        value: "Product Overview includes both a Problem Statement and stated Goals."
+      - type: llm-rubric
+        value: "Features section includes at least 2 distinct personas (e.g., Engineering Manager, Engineer)."
+      - type: llm-rubric
+        value: "Non-Functional Requirements includes at least one suggested tool or verification method per NFR."
+      - type: llm-rubric
+        value: "Change Log contains at least one initial version entry with a date and description."
+      - type: llm-rubric
+        value: "Open Questions contains at least 3 unresolved questions relevant to implementation."
+      - type: llm-rubric
+        value: "Open Questions section is not empty or does not contain only placeholder text."
+
+    # Test Case 2: Anonymity and Privacy Requirements
+  - vars:
+      product_description: |
+        TeamPulse Anonymity and Privacy Requirements are provided.
+    assert:
+      - type: llm-rubric
+        value: "Anonymity is captured as an explicit, concrete requirement — not just mentioned in passing."
+      - type: llm-rubric
+        value: "Dashboard requirements specify team-level aggregation."
+      - type: llm-rubric
+        value: "Data storage requirements reference anonymous response storage with no PII linkage."
+      - type: llm-rubric
+        value: "No section reveals individual survey responses tied to a specific engineer."
+  
+    # Test Case 3: Developer Readiness and Technical Specificity
+  - vars:
+      product_description: |
+        TeamPulse PRD is a comprehensive developer-ready document that includes all required sections and technical details.
+    assert:
+      - type: llm-rubric
+        value: "Key Implementation Details references the stated tech stack (React, Node.js, PostgreSQL)."
+      - type: llm-rubric
+        value: "SSO integration via Entra ID / OIDC is referenced as a concrete implementation constraint."
+      - type: llm-rubric
+        value: "At least one security-related NFR is present (e.g., authentication, authorization, data isolation between teams)."
+      - type: llm-rubric
+        value: "Survey scheduling behavior (weekly/bi-weekly) is described with some detail to assist a developer."
+      - type: llm-rubric
+        value: "Notification mechanism is described with some detail to assist a developer."
+      - type: llm-rubric
+        value: "The PRD enables a solo developer to scope work without inventing undocumented requirements."
+      - type: llm-rubric
+        value: "The PRD references the specified tech stack and integration context — it is not entirely generic."
+      - type: llm-rubric
+        value: "Authentication and SSO requirements are present and described with specific technical detail, not in vague business terms only."
+      - type: llm-rubric
+        value: "Requirements include developer-actionable specifics and are not written at a strategy level only."
+
+  # Test Case 4: Scope Boundaries and Open Questions Quality
+  - vars:
+      product_description: |
+        TeamPulse PRD includes comprehensive scope boundaries and open questions.
+    assert:
+      - type: llm-rubric
+        value: "Scope Boundaries explicitly names all 4 V1 out-of-scope items: ML-based sentiment analysis, cross-team comparison, HR system integration, and mobile native apps."
+      - type: llm-rubric
+        value: "Scope Boundaries includes at least one in-scope clarification alongside out-of-scope items."
+      - type: llm-rubric
+        value: "Open Questions includes at least one question about notification delivery."
+      - type: llm-rubric
+        value: "Open Questions includes at least one question about survey content or configuration ownership."
+      - type: llm-rubric
+        value: "Open Questions are framed as decisions that must be resolved before or during implementation, not rhetorical observations."
+      - type: llm-rubric
+        value: "Open Questions require judgment or decisions not already resolved by the prompt context — they are not trivially answerable."
+      - type: llm-rubric
+        value: "Scope Boundaries section contains actual content, not just a heading with no items."
+
+  # Test Case 5: Multi-Role Requirements Coverage
+  - vars:
+      product_description: |
+        TeamPulse PRD includes comprehensive multi-role requirements coverage.
+    assert:
+      - type: llm-rubric
+        value: "Features section defines at least 2 distinct personas — one for Engineer and one for Engineering Manager — with separate access scopes."
+      - type: llm-rubric
+        value: "Engineer-facing requirements cover survey submission and receiving notifications."
+      - type: llm-rubric
+        value: "Manager-facing requirements cover survey configuration and dashboard access."
+      - type: llm-rubric
+        value: "At least one User Story or Use Case exists for each role independently."
+      - type: llm-rubric
+        value: "Authorization requirements reflect that engineers cannot access the manager dashboard or configuration."

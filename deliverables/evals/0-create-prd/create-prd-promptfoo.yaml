@@ -1,0 +1,231 @@
+prompts:
+  - file://create-prd.md
+
+# Route llm-rubric grading through the Devin CLI — no API key needed
+defaultTest:
+  options:
+    provider: 'exec: node ./devin.js'
+
+providers:
+  - id: 'exec: node ./devin.js'
+    label: sonnet
+    config:
+      model: sonnet
+  - id: 'exec: node ./devin.js'
+    label: haiku
+    config:
+      model: haiku
+
+tests:
+  # ==========================================================================
+  # POMODORO TEST CASES
+  # Product description included in each test so the prompt remains generic.
+  # ==========================================================================
+
+  # TC-P1: PRD Structure and Completeness (Pomodoro)
+  - description: "PRD Structure and Completeness (Pomodoro)"
+    vars:
+      product_description: file://../../domains/product-pomodoro.md
+    assert:
+      - type: llm-rubric
+        value: "PRD contains all 7 required sections: Product Overview, Features, Non-Functional Requirements, Key Implementation Details, Scope Boundaries, Open Questions, and Change Log."
+      - type: llm-rubric
+        value: "Product Overview includes both a Problem Statement and stated Goals."
+      - type: llm-rubric
+        value: "Features section defines at least one persona with a description of their primary interactions."
+      - type: llm-rubric
+        value: "Features section includes User Stories or Use Cases with Acceptance Criteria — not just a
+          feature list."
+      - type: llm-rubric
+        value: "Non-Functional Requirements section names a specific verification tool or test method for
+          each requirement — not just 'manual review'."
+      - type: llm-rubric
+        value: "Change Log contains at least one initial version entry with a version number and a date."
+      - type: llm-rubric
+        value: "Open Questions section contains at least 3 unresolved questions that are not trivially answerable from the product description."
+      - type: llm-rubric
+        value: "Scope Boundaries names at least 3 items that are explicitly out of scope for V1."
+      - type: llm-rubric
+        value: "The PRD does not specify a specific JavaScript framework or UI library as a requirement."
+
+  # TC-P2: Timer Precision and Browser Background Behavior (Pomodoro)
+  - description: "Timer Precision and Browser Background Behavior (Pomodoro)"
+    vars:
+      product_description: file://../../domains/product-pomodoro.md
+    assert:
+      - type: llm-rubric
+        value: "PRD explicitly defines acceptable timer drift tolerance with a numeric threshold (e.g., ±2 seconds over a 25-minute session) — not just a statement that the timer should be accurate."
+      - type: llm-rubric
+        value: "PRD specifies that timer accuracy is maintained by comparing saved timestamps rather than counting timer ticks or setInterval callbacks."
+      - type: llm-rubric
+        value: "PRD addresses browser throttling of background tabs and specifies the required mitigation."
+      - type: llm-rubric
+        value: "PRD defines what happens when the user switches tabs for an extended duration (e.g., 10–30 minutes)."
+      - type: llm-rubric
+        value: "PRD does not use the word 'accurate' to describe the timer without a measurable,
+          testable definition."
+
+  # TC-P3: Storage Schema and Heat Map Data Model (Pomodoro)
+  - description: "Storage Schema and Heat Map Data Model (Pomodoro)"
+    vars:
+      product_description: file://../../domains/product-pomodoro.md
+    assert:
+      - type: llm-rubric
+        value: "PRD defines the unit of each heat map cell (day, hour-block, or per-session slot)."
+      - type: llm-rubric
+        value: "PRD includes a visible storage schema with actual field names and types. The schema must include: (1) a unique identifier field, (2) timestamp field(s) for when the session started/ended, (3) a boolean or status field indicating completion, and (4) a field distinguishing 'work' from 'break' sessions (enum, union, or string literal type)."
+      - type: llm-rubric
+        value: "PRD addresses all three storage concerns: (1) location is named, (2) retention limit is specified, and (3) unavailability scenarios are described with specific fallback behavior (e.g., graceful degradation, error messages, or memory-only mode)."
+      - type: llm-rubric
+        value: "PRD describes what the heat map displays for a first-time user before any sessions have been completed (empty state with working storage)."
+      - type: llm-rubric
+        value: "The PRD defines what 'week' means (calendar week or rolling 7 days)."
+      - type: llm-rubric
+        value: "The PRD specifies a schema to 'store session data'."
+      - type: llm-rubric
+        value: "The PRD indicates the behavior of data persistence across browser restarts."
+      - type: llm-rubric
+        value: "The PRD does not assume a backend exists without listing it as a dependency or explicit scope decision."
+
+  # TC-P4: Non-Functional Requirements Specificity (Pomodoro)
+  - description: "Non-Functional Requirements Specificity (Pomodoro)"
+    vars:
+      product_description: file://../../domains/product-pomodoro.md
+    assert:
+      - type: llm-rubric
+        value: "PRD translates 'responsive' into a measurable layout requirement. The word 'responsive' does not appear alone without this definition."
+      - type: llm-rubric
+        value: "PRD translates 'fast' into specific, testable performance budgets with numeric thresholds
+          and named test conditions (e.g., page load time on 4G, Time to Interactive). Each budget
+          names the tool or method for measuring it."
+      - type: llm-rubric
+        value: "PRD translates 'accurate' into a measurable timer tolerance with a specific numeric
+          threshold — not a general statement that the timer should be accurate."
+      - type: llm-rubric
+        value: "PRD translates 'easy to use' into an observable, testable criterion"
+      - type: llm-rubric
+        value: "PRD defines 'all modern browsers' as an explicit, versioned browser support matrix."
+      - type: llm-rubric
+        value: "Each non-functional requirement names the tool or method used to verify it."
+
+  # TC-P5: Notification and Audio Permission Flows (Pomodoro)
+  - description: "Notification and Audio Permission Flows (Pomodoro)"
+    vars:
+      product_description: file://../../domains/product-pomodoro.md
+    assert:
+      - type: llm-rubric
+        value: "PRD states whether audio and notification requirements."
+      - type: llm-rubric
+        value: "PRD distinguishes between alerts and other mechanisms (e.g. notifications)."
+      - type: llm-rubric
+        value: "PRD specifies considerations for when and how permission to receive notifications is triggered (e.g., after the user starts their first session, not on page load)."
+      - type: llm-rubric
+        value: "PRD defines fallback considerations: what the user sees or hears if notification permission is denied."
+      - type: llm-rubric
+        value: "PRD provides notification copy (title and body text) for both work-end and break-end messages."
+      - type: llm-rubric
+        value: "The PRD uses consistent and technically accurate terminology for notifications (e.g. Web Notifications API, in-app browser notifications)"
+
+  # ==========================================================================
+  # TEAMPULSE TEST CASES
+  # Product description included in each test so the prompt remains generic.
+  # ==========================================================================
+
+  # TC-T1: Required Sections and Document Completeness (TeamPulse)
+  - description: "Required Sections and Document Completeness (TeamPulse)"
+    vars:
+      product_description: file://../../domains/product-teampulse.md
+    assert:
+      - type: llm-rubric
+        value: "PRD contains all 7 required sections: Product Overview, Features, Non-Functional Requirements, Key Implementation Details, Scope Boundaries, Open Questions, and Change Log."
+      - type: llm-rubric
+        value: "Product Overview includes both a Problem Statement and stated Goals with success indicators."
+      - type: llm-rubric
+        value: "Features section defines at least 2 distinct personas — Engineering Manager and Engineer —
+          each with their own described interactions and access scope."
+      - type: llm-rubric
+        value: "Non-Functional Requirements section includes at least one suggested tool or verification method per NFR — not just 'manual review'."
+      - type: llm-rubric
+        value: "Change Log contains at least one initial version entry with a version number and a date."
+      - type: llm-rubric
+        value: "Open Questions section contains at least 3 unresolved questions relevant to implementation that are not trivially answerable from the product description."
+      - type: llm-rubric
+        value: "The PRD is not generic — it references the TeamPulse-specific tech stack, roles, and context from the product description."
+
+  # TC-T2: Anonymity and Privacy as Operational Requirements (TeamPulse)
+  - description: "Anonymity and Privacy as Operational Requirements (TeamPulse)"
+    vars:
+      product_description: file://../../domains/product-teampulse.md
+    assert:
+      - type: llm-rubric
+        value: "Anonymity is captured as an explicit, concrete requirement — not just mentioned in passing."
+      - type: llm-rubric
+        value: "Dashboard requirements specify team-level aggregation."
+      - type: llm-rubric
+        value: "Data storage requirements reference anonymous response storage with no PII linkage."
+      - type: llm-rubric
+        value: "No section reveals individual survey responses tied to a specific engineer."
+
+  # TC-T3: Multi-Role Requirements Coverage (TeamPulse)
+  - description: "Multi-Role Requirements Coverage (TeamPulse)"
+    vars:
+      product_description: file://../../domains/product-teampulse.md
+    assert:
+      - type: llm-rubric
+        value: "Features section defines at least 2 distinct personas — Engineering Manager and Engineer — with separate access scopes explicitly described for each."
+      - type: llm-rubric
+        value: "Manager-facing requirements cover all three configuration responsibilities: question set election, survey frequency setting, and team membership management."
+      - type: llm-rubric
+        value: "Manager-facing requirements include dashboard access with trend lines and period-over-period
+          comparisons — the dashboard is not described as a generic 'results page'."
+      - type: llm-rubric
+        value: "At least one User Story or Use Case exists independently for the Engineer role and at least
+          one exists independently for the Engineering Manager role."
+      - type: llm-rubric
+        value: "Authorization requirements explicitly state that engineers cannot access the manager dashboard or survey configuration, and that managers cannot view other managers' team data."
+      - type: llm-rubric
+        value: "Engineers are not described as having access to dashboard, configuration, or aggregated results."
+      - type: llm-rubric
+        value: "PRD does not describe the system using a single generic 'user' persona without role distinction — the Engineer and Engineering Manager roles are treated separately throughout."
+
+  # TC-T4: Scope Boundaries and Open Questions Quality (TeamPulse)
+  - description: "Scope Boundaries and Open Questions Quality (TeamPulse)"
+    vars:
+      product_description: file://../../domains/product-teampulse.md
+    assert:
+      - type: llm-rubric
+        value: "Scope Boundaries explicitly names all 4 V1 out-of-scope items: ML-based sentiment analysis, cross-team comparison, HR system integration, and mobile native apps."
+      - type: llm-rubric
+        value: "Scope Boundaries includes at least one in-scope clarification alongside out-of-scope items."
+      - type: llm-rubric
+        value: "Open Questions includes at least one question about notification delivery."
+      - type: llm-rubric
+        value: "Open Questions includes at least one question about survey content or configuration ownership."
+      - type: llm-rubric
+        value: "Open Questions are framed as decisions that must be resolved before or during implementation, not rhetorical observations."
+      - type: llm-rubric
+        value: "Open Questions require judgment or decisions not already resolved by the prompt context — they are not trivially answerable."
+      - type: llm-rubric
+        value: "Scope Boundaries section contains actual content, not just a heading with no items."
+
+  # TC-T5: Developer Readiness and Technical Specificity (TeamPulse)
+  - description: "Developer Readiness and Technical Specificity (TeamPulse)"
+    vars:
+      product_description: file://../../domains/product-teampulse.md
+    assert:
+      - type: llm-rubric
+        value: "Key Implementation Details references the stated tech stack (React, Node.js, PostgreSQL)
+          as implementation constraints, not just background context."
+      - type: llm-rubric
+        value: "SSO integration via Entra ID / OIDC is referenced as a concrete implementation constraint —
+          specifically that no local credential storage is used."
+      - type: llm-rubric
+        value: "At least one security-related NFR is present that addresses authentication, authorization, or data isolation between teams — with a named verification method."
+      - type: llm-rubric
+        value: "Survey scheduling behavior is described with enough implementation detail for a developer to begin work — not just stated as 'surveys are sent on schedule'."
+      - type: llm-rubric
+        value: "Notification mechanism is described with enough detail for a developer to start implementation — including the token-based link design and submission constraints."
+      - type: llm-rubric
+        value: "The PRD enables a solo developer to scope and begin work without inventing undocumented requirements — no critical implementation detail is left entirely unaddressed."
+      - type: llm-rubric
+        value: "Requirements include developer-actionable specifics: at least one measurable NFR threshold, at least one data schema or model reference, and at least one described integration point."

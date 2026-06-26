@@ -1,0 +1,52 @@
+prompts:
+  - file://create-architecture.md
+
+# Route llm-rubric grading through the Devin CLI — no API key needed
+defaultTest:
+  options:
+    provider: 'exec: node ./../devin.js'
+
+providers:
+  - id: 'exec: node ./../devin.js'
+    label: sonnet
+    config:
+      model: sonnet
+  - id: 'exec: node ./../devin.js'
+    label: haiku
+    config:
+      model: haiku
+
+tests:
+  # ==========================================================================
+  # POMODORO TEST CASES
+  # Product description included in each test so the prompt remains generic.
+  # ==========================================================================
+
+  # TC-P1: PRD Structure and Completeness (Pomodoro)
+  - description: "Architecture Document Structure"
+    vars:
+      product_description: file://../../domains/product-pomodoro.md
+      product_prd: file://../../outcomes/pomodoro-prd-sonnet.md
+    assert:
+      - type: contains
+        value: "Architecture"
+
+  # ==========================================================================
+  # TEAMPULSE TEST CASES
+  # Product description included in each test so the prompt remains generic.
+  # ==========================================================================
+
+  # TC-T1: Required Sections and Document Completeness (TeamPulse)
+  - description: "Architecture Document Structure"
+    vars:
+      product_description: file://../../domains/product-teampulse.md
+      product_prd: file://../../outcomes/teampulse-prd-final.md
+    assert:
+      - type: contains
+        value: "Architecture"
+      - type: contains-all
+        value:
+          - "React"
+          - "Node.js"
+          - "PostgreSQL"
+      
