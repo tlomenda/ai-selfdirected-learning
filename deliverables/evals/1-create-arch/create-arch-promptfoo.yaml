@@ -27,9 +27,22 @@ tests:
     vars:
       product_description: file://../../domains/product-pomodoro.md
       product_prd: file://../../outcomes/pomodoro-prd-sonnet.md
+      tech_stack: file://../../app-techstack/browser-stack.md
     assert:
-      - type: contains
-        value: "Architecture"
+      - type: llm-rubric
+        value: "Contains all required sections and includes mermaid diagrams"
+      - type: llm-rubric
+        value: "Includes a description of the purpose, goals, and high-level architecture"
+      - type: llm-rubric
+        value: "Shows a C4 modeled diagrams"
+      - type: llm-rubric
+        value: "Includes system/application boundaries and interfaces"
+      - type: llm-rubric
+        value: "Includes data flow and interactions"
+      - type: llm-rubric
+        value: "Includes security and compliance requirements"
+      - type: llm-rubric
+        value: "Includes performance requirements"
 
   # ==========================================================================
   # TEAMPULSE TEST CASES
@@ -37,16 +50,56 @@ tests:
   # ==========================================================================
 
   # TC-T1: Required Sections and Document Completeness (TeamPulse)
-  - description: "Architecture Document Structure"
+  - description: "Architecture Document Structure with React/Node.js/PostgreSQL"
     vars:
       product_description: file://../../domains/product-teampulse.md
       product_prd: file://../../outcomes/teampulse-prd-final.md
+      tech_stack: file://../../app-techstack/PERN-stack.md
     assert:
-      - type: contains
-        value: "Architecture"
       - type: contains-all
         value:
           - "React"
           - "Node.js"
           - "PostgreSQL"
+      - type: llm-rubric
+        value: "Contains all required sections and includes mermaid diagrams"
+      - type: llm-rubric
+        value: "Includes a description of the purpose, goals, and high-level architecture"
+      - type: llm-rubric
+        value: "Shows a C4 modeled diagrams"
+      - type: llm-rubric
+        value: "Includes system/application boundaries and interfaces"
+      - type: llm-rubric
+        value: "Includes data flow and interactions"
+      - type: llm-rubric
+        value: "Includes security and compliance requirements"
+      - type: llm-rubric
+        value: "Includes performance and scalability requirements"
+
+  # TC-T2: Required Sections and Document Completeness (TeamPulse)
+  - description: "Architecture Document Structure - with Python/FastAPI/MongoDB"
+    vars:
+      product_description: file://../../domains/product-teampulse.md
+      product_prd: ffile://../../outcomes/teampulse-prd-final.md
+      tech_stack: file://../../app-techstack/Python-stack.md
+    assert:
+      - type: contains-all
+        value:
+          - "Python"
+          - "FastAPI"
+          - "MongoDB"
+      - type: llm-rubric
+        value: "Contains all required sections and includes mermaid diagrams"
+      - type: llm-rubric
+        value: "Includes a description of the purpose, goals, and high-level architecture"
+      - type: llm-rubric
+        value: "Includes DDD and C4 Modeling concepts for the architecture and design"
+      - type: llm-rubric
+        value: "Includes system/application boundaries and interfaces"
+      - type: llm-rubric
+        value: "Includes data flow and interactions"
+      - type: llm-rubric
+        value: "Includes security and compliance requirements"
+      - type: llm-rubric
+        value: "Includes performance and scalability requirements"
       
