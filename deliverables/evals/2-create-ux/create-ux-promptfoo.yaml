@@ -1,0 +1,72 @@
+
+description: EDD - Create UX Specification Document
+
+prompts:
+  - file://create-ux.md
+
+defaultTest:
+  options:
+    provider: 'exec: node ./../devin.js'
+
+providers:
+  - id: 'exec: node ./../devin.js'
+    label: sonnet
+    config:
+      model: sonnet
+  - id: 'exec: node ./../devin.js'
+    label: haiku
+    config:
+      model: haiku
+
+tests:
+  # ==========================================================================
+  # TEAMPULSE TEST CASES
+  # Product description included in each test so the prompt remains generic.
+  # ==========================================================================
+  - description: "UX Specification for TeamPulse"
+    vars:
+      product_description: file://../../domains/product-teampulse.md
+      product_prd: file://../../outcomes/teampulse/teampulse-prd-final.md
+    assert:
+      - type: llm-rubric
+        value: "Contains all required sections: Overview, Target Users & Personas, User Goals, User Flows, Information Architecture, Screen Specifications, Interaction Design, Error Handling, Accessibility, and Implementation Notes."
+
+      - type: llm-rubric
+        value: "Defines key UI components (inputs, controls, containers, navigation) with descriptions."
+
+      - type: llm-rubric
+        value: "Defines clear user flows for both Engineering Manager and Engineer personas."
+
+      - type: llm-rubric
+        value: "Engineer UX emphasizes quick survey input, minimal friction."
+
+      - type: llm-rubric
+        value: "Manager UX emphasizes configuration, dashboard, trend analysis, and team management."
+
+      - type: llm-rubric
+        value: "Explicitly addresses mobile responsiveness with specific breakpoints."
+
+      - type: llm-rubric
+        value: "Defines explicit time targets (eg: engineer < 3 minutes, manager < 5 minutes)."
+
+      - type: llm-rubric
+        value: "Covers accessibility requirements including WCAG 2.1 AA, color contrast, keyboard navigation, and ARIA labels."
+        threshold: 0.7
+
+      - type: llm-rubric
+        value: "Covers 'Information Architecture' with site map and data hierarchy."
+
+      - type: llm-rubric
+        value: "Describes dashboard components with measurable targets (ie: trends, metrics, etc.)"
+
+      - type: llm-rubric
+        value: "Defines what screens are applicable for the engineer and manager roles."
+
+      - type: llm-rubric
+        value: "Covers screen specifications with detailed component breakdowns, visual design guidelines, and interaction patterns."
+
+      - type: llm-rubric
+        value: "Covers error handling, loading states, and empty states with recovery paths (not just happy path)."
+
+      - type: llm-rubric
+        value: "Provides sufficient specification detail for a developer to start implementation."

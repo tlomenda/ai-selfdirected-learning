@@ -1,0 +1,1 @@
+- Tech stack: PostgreSQL (database), Express.js and Node.js (backend), React (frontend)

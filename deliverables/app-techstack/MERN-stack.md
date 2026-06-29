@@ -1,0 +1,1 @@
+- Tech stack: MongoDB (database, Express.js and Node.js (backend), React (frontend)

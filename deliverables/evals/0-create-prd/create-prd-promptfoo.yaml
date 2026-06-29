@@ -1,3 +1,5 @@
+description: EDD - Create Product Requirements Document (PRD)
+
 prompts:
   - file://create-prd.md
 

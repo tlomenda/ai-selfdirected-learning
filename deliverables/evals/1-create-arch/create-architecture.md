@@ -11,7 +11,7 @@ Return the document as a markdown file so it can easily be copied and reviewed.
 
 The architecture document, commonly known as a Solution Design Document (SDD), is a technical document that describes how a system or application will be designed. It uses the PRD as a foundation on what needs to be built and provides an architectural blueprint that guides the development process.
 
-It models the system using C4 modeling approach - a developer-friendly framework and lightweight standard for visualizing and documenting software architecture. it also leveraged Domain-Driven Design (DDD) principles to ensure the architecture aligns with business domains and bounded contexts.
+It models the system using C4 modeling approach - a developer-friendly framework and lightweight standard for visualizing and documenting software architecture. it also leverages Domain-Driven Design (DDD) principles to ensure the architecture aligns with business domains and bounded contexts.
 
 To be a useful document, architecture diagrams (C4, DDD Context Map, ERD, Data Flow) using mermaid syntax markdown blocks are to be included.
 

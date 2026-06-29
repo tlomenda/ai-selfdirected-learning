@@ -1,0 +1,1 @@
+- Tech stack: browser-based application (HTML5, CSS3, JavaScript) with no server-side backend
