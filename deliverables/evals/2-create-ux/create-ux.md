@@ -15,7 +15,7 @@ This document defines how users will interact with a product to accomplish their
 
 Think of it as the bridge between a Product Requirements Document (PRD) and a Technical Design Specification (TDS).
 
-A concise UX Specification typically includes the following sections:
+A UX Specification document includes the following sections to assist developers in implementing the design:
 
 - Overview
 - Target Users & Personas

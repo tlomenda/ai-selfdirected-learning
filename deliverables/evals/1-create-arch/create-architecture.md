@@ -13,9 +13,9 @@ The architecture document, commonly known as a Solution Design Document (SDD), i
 
 It models the system using C4 modeling approach - a developer-friendly framework and lightweight standard for visualizing and documenting software architecture. it also leverages Domain-Driven Design (DDD) principles to ensure the architecture aligns with business domains and bounded contexts.
 
-To be a useful document, architecture diagrams (C4, DDD Context Map, ERD, Data Flow) using mermaid syntax markdown blocks are to be included.
-
 The architecture document will be used by technical leads, architects, and development team to understand how everything fits together - services, components, containers, modules, databases, APIs and integrations - without choosing specific tools.
+
+To be a useful document, architecture diagrams (C4, DDD Context Map, ERD, Data Flow) using mermaid syntax markdown blocks are to be included.
 
 This document includes:
 - High-Level Architecture
@@ -32,7 +32,7 @@ This document includes:
   - Integration Pattern for external systems
 - Security Considerations
 
-The document addresses quality attributes - known as '*-bilities' - based on the non-functional requirements from the PRD. These qualities may include:
+The document also addresses quality attributes - known as '*-bilities' - based on the non-functional requirements from the PRD. These qualities may include:
 - Operational: Scalability, Reliability, Performance, Security
 - Development: Maintainability, Extensibility, Deployability, Portability
 - System: Modularity
