@@ -1,0 +1,43 @@
+(node:88739) ExperimentalWarning: DecompressInterceptor is experimental and subject to change
+(Use `node --trace-warnings ...` to show where the warning was created)
+Starting evaluation eval-XR5-2026-07-07T00:05:55
+Running 2 test cases (up to 4 at a time)...
+
+┌────────────────────────┬────────────────────────┬────────────────────────┬────────────────────────┬────────────────────────┐
+│ product_prd            │ architecture_document  │ ux_speicfication       │ [sonnet]               │ [haiku]                │
+│                        │                        │                        │ create-epics-stories.… │ create-epics-stories.… │
+│                        │                        │                        │ # Create Epics and     │ # Create Epics and     │
+│                        │                        │                        │ Stories                │ Stories                │
+│                        │                        │                        │ ## Role                │ ## Role                │
+│                        │                        │                        │ You are an exp...      │ You are an exp...      │
+├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┤
+│ file://../../katas/te… │ file://../../katas/te… │ file://../../katas/te… │ [FAIL] Here's a        │ [FAIL] I see the       │
+│                        │                        │                        │ summary of the backlog │ permission issue. Let  │
+│                        │                        │                        │ I produced:            │ me provide you with    │
+│                        │                        │                        │ ## TeamPulse Agile     │ the comprehensive      │
+│                        │                        │                        │ Backlog — Summary      │ backlog document       │
+│                        │                        │                        │ **44 stories across 8  │ directly in this       │
+│                        │                        │                        │ epics:**               │ response, which you    │
+│                        │                        │                        │ | Epic | Stories |     │ can copy and save:     │
+│                        │                        │                        │ Focus |                │ ---                    │
+│                        │                        │                        │ |------|---------|---… │ # TeamPulse Agile      │
+│                        │                        │                        │ | EPIC-01: Foundation  │ Backlog Document       │
+│                        │                        │                        │ & Infrastructure | 7 | │ **Version**: 1.0       │
+│                        │                        │                        │ Scaffold, DB schema,   │ **Date**: 2026-07-06   │
+│                        │                        │                        │ CI/CD, deplo...        │ **Product**:           │
+│                        │                        │                        │                        │ TeamPul...             │
+└────────────────────────┴────────────────────────┴────────────────────────┴────────────────────────┴────────────────────────┘
+✓ Eval complete (ID: eval-XR5-2026-07-07T00:05:55)
+
+» View results: promptfoo view
+» Share with your team: https://promptfoo.app
+» Feedback: https://promptfoo.dev/feedback
+
+
+Results:
+  0 passed (0%)
+  ✗ 2 failed (100%)
+  0 errors (0%)
+Duration: 19m 14s (concurrency: 4)
+
+Writing output to teampulse-results.json

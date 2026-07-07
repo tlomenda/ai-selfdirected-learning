@@ -25,8 +25,8 @@ tests:
   # ==========================================================================
   - description: "UX Specification for TeamPulse"
     vars:
-      product_description: file://../../domains/product-teampulse.md
-      product_prd: file://../../outcomes/teampulse/teampulse-prd-final.md
+      product_description: file://../../katas/teampulse/product-teampulse.md
+      product_prd: file://../../katas/teampulse/exercises/teampulse-prd-final.md
     assert:
       - type: llm-rubric
         value: "Contains all required sections: Overview, Target Users & Personas, User Goals, User Flows, Information Architecture, Screen Specifications, Interaction Design, Error Handling, Accessibility, and Implementation Notes."

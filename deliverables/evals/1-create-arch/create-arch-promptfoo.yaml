@@ -31,9 +31,9 @@ tests:
   # TC-P1: PRD Structure and Completeness (Pomodoro)
   - description: "Architecture Document Structure"
     vars:
-      product_description: file://../../domains/product-pomodoro.md
-      product_prd: file://../../outcomes/pomodoro/pomodoro-prd-sonnet.md
-      tech_stack: file://../../app-techstack/browser-stack.md
+      product_description: file://../../katas/pomodoro/product-pomodoro.md
+      product_prd: file://../../katas/pomodoro/pomodoro-prd-sonnet.md
+      tech_stack: file://../../app/techstack/browser-stack.md
     assert:
       - type: llm-rubric
         value: "Contains all required sections and includes mermaid diagrams"
@@ -58,9 +58,9 @@ tests:
   # TC-T1: Required Sections and Document Completeness (TeamPulse)
   - description: "Architecture Document Structure with React/Node.js/PostgreSQL"
     vars:
-      product_description: file://../../domains/product-teampulse.md
-      product_prd: file://../../outcomes/teampulse/teampulse-prd-final.md
-      tech_stack: file://../../app-techstack/PERN-stack.md
+      product_description: file://../../katas/teampulse/product-teampulse.md
+      product_prd: file://../../katas/teampulse/teampulse-prd-final.md
+      tech_stack: file://../../app/techstack/PERN-stack.md
     assert:
       - type: contains-all
         value:
@@ -85,9 +85,9 @@ tests:
   # TC-T2: Required Sections and Document Completeness (TeamPulse)
   - description: "Architecture Document Structure - with Python/FastAPI/MongoDB"
     vars:
-      product_description: file://../../domains/product-teampulse.md
-      product_prd: ffile://../../outcomes/teampulse/teampulse-prd-final.md
-      tech_stack: file://../../app-techstack/Python-stack.md
+      product_description: file://../../katas/teampulse/product-teampulse.md
+      product_prd: ffile://../../katas/teampulse/teampulse-prd-final.md
+      tech_stack: file://../../app/techstack/Python-stack.md
     assert:
       - type: contains-all
         value:

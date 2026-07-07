@@ -7,11 +7,11 @@ You have completed this program when you can submit the following:
 - [x] `create-prd.md` — RTCC-structured, load-bearing audit documented
 - [x] `create-prd-promptfoo.yaml` — multi-model config, baseline + 3+ iterations recorded
 - [x] Model Ladder baseline documented for at least Module 1's `create-prd` command
-- [3] Seven SDLC command files from Module 2 with completed Context and Constraints
+- [4] Seven SDLC command files from Module 2 with completed Context and Constraints
 - [3] Promptfoo configurations for all seven commands (multi-model, with iteration records)
 - [x] Load-bearing audit documentation for at least 3 commands
 - [1] Kata stress test documented for at least 3 SDLC commands
-- [ ] Model Ladder progression documented for at least 1 command (starting delta → hypothesis → change → resulting delta)
+- [x] Model Ladder progression documented for at least 1 command (starting delta → hypothesis → change → resulting delta)
 - [ ] DevLog pipeline run output (all seven stages) and pipeline run notes
 - [ ] Blackjack kata pipeline run output and comparison notes
 - [ ] At least one skill file converted from a command, with invocation test cases

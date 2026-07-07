@@ -27,7 +27,7 @@ tests:
   # TC-P1: PRD Structure and Completeness (Pomodoro)
   - description: "PRD Structure and Completeness (Pomodoro)"
     vars:
-      product_description: file://../../domains/product-pomodoro.md
+      product_description: file://../../katas/pomodoro/product-pomodoro.md
     assert:
       - type: llm-rubric
         value: "PRD contains all 7 required sections: Product Overview, Features, Non-Functional Requirements, Key Implementation Details, Scope Boundaries, Open Questions, and Change Log."
@@ -53,7 +53,7 @@ tests:
   # TC-P2: Timer Precision and Browser Background Behavior (Pomodoro)
   - description: "Timer Precision and Browser Background Behavior (Pomodoro)"
     vars:
-      product_description: file://../../domains/product-pomodoro.md
+      product_description: file://../../katas/pomodoro/product-pomodoro.md
     assert:
       - type: llm-rubric
         value: "PRD explicitly defines acceptable timer drift tolerance with a numeric threshold (e.g., ±2 seconds over a 25-minute session) — not just a statement that the timer should be accurate."
@@ -70,7 +70,7 @@ tests:
   # TC-P3: Storage Schema and Heat Map Data Model (Pomodoro)
   - description: "Storage Schema and Heat Map Data Model (Pomodoro)"
     vars:
-      product_description: file://../../domains/product-pomodoro.md
+      product_description: file://../../katas/pomodoro/product-pomodoro.md
     assert:
       - type: llm-rubric
         value: "PRD defines the unit of each heat map cell (day, hour-block, or per-session slot)."
@@ -92,7 +92,7 @@ tests:
   # TC-P4: Non-Functional Requirements Specificity (Pomodoro)
   - description: "Non-Functional Requirements Specificity (Pomodoro)"
     vars:
-      product_description: file://../../domains/product-pomodoro.md
+      product_description: file://../../katas/pomodoro/product-pomodoro.md
     assert:
       - type: llm-rubric
         value: "PRD translates 'responsive' into a measurable layout requirement. The word 'responsive' does not appear alone without this definition."
@@ -136,7 +136,7 @@ tests:
   # TC-T1: Required Sections and Document Completeness (TeamPulse)
   - description: "Required Sections and Document Completeness (TeamPulse)"
     vars:
-      product_description: file://../../domains/product-teampulse.md
+      product_description: file://../../katas/teampulse/product-teampulse.md
     assert:
       - type: llm-rubric
         value: "PRD contains all 7 required sections: Product Overview, Features, Non-Functional Requirements, Key Implementation Details, Scope Boundaries, Open Questions, and Change Log."
@@ -157,7 +157,7 @@ tests:
   # TC-T2: Anonymity and Privacy as Operational Requirements (TeamPulse)
   - description: "Anonymity and Privacy as Operational Requirements (TeamPulse)"
     vars:
-      product_description: file://../../domains/product-teampulse.md
+      product_description: file://../../katas/teampulse/product-teampulse.md
     assert:
       - type: llm-rubric
         value: "Anonymity is captured as an explicit, concrete requirement — not just mentioned in passing."
@@ -171,7 +171,7 @@ tests:
   # TC-T3: Multi-Role Requirements Coverage (TeamPulse)
   - description: "Multi-Role Requirements Coverage (TeamPulse)"
     vars:
-      product_description: file://../../domains/product-teampulse.md
+      product_description: file://../../katas/teampulse/product-teampulse.md
     assert:
       - type: llm-rubric
         value: "Features section defines at least 2 distinct personas — Engineering Manager and Engineer — with separate access scopes explicitly described for each."
@@ -193,7 +193,7 @@ tests:
   # TC-T4: Scope Boundaries and Open Questions Quality (TeamPulse)
   - description: "Scope Boundaries and Open Questions Quality (TeamPulse)"
     vars:
-      product_description: file://../../domains/product-teampulse.md
+      product_description: file://../../katas/teampulse/product-teampulse.md
     assert:
       - type: llm-rubric
         value: "Scope Boundaries explicitly names all 4 V1 out-of-scope items: ML-based sentiment analysis, cross-team comparison, HR system integration, and mobile native apps."
@@ -213,7 +213,7 @@ tests:
   # TC-T5: Developer Readiness and Technical Specificity (TeamPulse)
   - description: "Developer Readiness and Technical Specificity (TeamPulse)"
     vars:
-      product_description: file://../../domains/product-teampulse.md
+      product_description: file://../../katas/teampulse/product-teampulse.md
     assert:
       - type: llm-rubric
         value: "Key Implementation Details references the stated tech stack (React, Node.js, PostgreSQL)
