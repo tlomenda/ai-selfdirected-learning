@@ -1,1 +1,1 @@
-- Tech stack: MongoDB (database), Python andFastAPI (backend), React (frontend)
+- Tech stack: MongoDB (database), Python and FastAPI (backend), React (frontend)

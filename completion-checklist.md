@@ -7,10 +7,9 @@ You have completed this program when you can submit the following:
 - [x] `create-prd.md` — RTCC-structured, load-bearing audit documented
 - [x] `create-prd-promptfoo.yaml` — multi-model config, baseline + 3+ iterations recorded
 - [x] Model Ladder baseline documented for at least Module 1's `create-prd` command
-- [4] Seven SDLC command files from Module 2 with completed Context and Constraints
+- [6] Seven SDLC command files from Module 2 with completed Context and Constraints
 - [3] Promptfoo configurations for all seven commands (multi-model, with iteration records)
 - [x] Load-bearing audit documentation for at least 3 commands
-- [1] Kata stress test documented for at least 3 SDLC commands
 - [x] Model Ladder progression documented for at least 1 command (starting delta → hypothesis → change → resulting delta)
 - [ ] DevLog pipeline run output (all seven stages) and pipeline run notes
 - [ ] Blackjack kata pipeline run output and comparison notes
@@ -18,9 +17,14 @@ You have completed this program when you can submit the following:
 - [ ] Sentinel file schema for at least one command
 - [ ] Hook script with deterministic pass/fail logic
 - [ ] Two-step governed flow, tested across all four scenarios
+- [] Kata stress test - conway's game of life (create-arc)
+- [x] Kata stress test - tic-tac-toe (create-ux)
+- [] Kata stress test - Snake with Replay (create-epics-stories)
+- [] Kata stress test - Sorting Algorithm Visualizer (plan-story)
+
 
 **Written deliverables:**
 - [ ] Automation spectrum assessment for your artifact set
 - [ ] Governance explanation paragraph (written for a non-technical manager)
 - [ ] Behavior change reflection: which artifacts are in your active daily workflow
-- [ ] Self-assessment against the four DLP Completion criteria (Craft, Evaluate, Iterate, Adopt)
+- [x] Self-assessment against the four DLP Completion criteria (Craft, Evaluate, Iterate, Adopt)

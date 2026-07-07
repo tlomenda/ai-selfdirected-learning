@@ -32,10 +32,10 @@ tests:
   # ==========================================================================
   - description: "Epics and User Stories for TeamPulse"
     vars:
-      markdown_content: file://../../katas/teampulse/exercises/teampulse-epics-stories.md
-      product_prd: file://../../katas/teampulse/specs-prd-arch-ux/TeamPulse-PRD.md
-      architecture_document: file://../../katas/teampulse/specs-prd-arch-ux/TeamPulse-Architecture.md
-      ux_specification: file://../../katas/teampulse/specs-prd-arch-ux/TeamPulse-UX-Specification.md
+      markdown_content: file://epics-stories-result.md
+      product_prd: file://../../katas/teampulse/pipeline-3-stage/TeamPulse-PRD.md
+      architecture_document: file://../../katas/teampulse/pipeline-3-stage/TeamPulse-Architecture.md
+      ux_specification: file://../../katas/teampulse/pipeline-3-stage/TeamPulse-UX-Specification.md
     assert:
       - type: llm-rubric
         value: "A story is clear enough to be designed, implemented, tested, and accepted as a deliverable increment of value."

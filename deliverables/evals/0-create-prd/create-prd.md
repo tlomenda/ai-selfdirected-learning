@@ -52,7 +52,7 @@ The audience for this PRD is a solo developer or small development team building
 
 9. The PRD must not prescribe framework choices, library selections, or build tooling beyond what is explicitly required by the product description for key implementation decisions. Technical implementation decisions belong to the development team.
 
----w
+---
 
-Product Description:
+**Product Description:**
 {{product_description}}

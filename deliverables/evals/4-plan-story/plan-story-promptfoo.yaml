@@ -1,0 +1,178 @@
+
+description: EDD - Plan Story
+
+prompts:
+  - id: file://plan-story.md
+    label: eval-prompt
+  - id: eval-markdown
+    label: eval-markdown
+    raw: "{{markdown_content}}"
+
+defaultTest:
+  options:
+    provider: 'exec: node ./../devin.js'
+
+providers:
+  - id: 'exec: node ./../evaluate-markdown.js'
+    label: markdown
+    config:
+      model: markdown
+  - id: 'exec: node ./../devin.js'
+    label: sonnet
+    config:
+      model: sonnet
+  - id: 'exec: node ./../devin.js'
+    label: haiku
+    config:
+      model: haiku
+
+tests:
+  # ==========================================================================
+  # TEAMPULSE PERN Stack - PostgreSQL (database), Express.js and Node.js (backend), React (frontend)
+  # ==========================================================================
+  - description: "Plan Story for PERN stack"
+    vars:
+      # markdown_content: file://../../katas/teampulse/exercises/teampulse-epics-stories.md
+      product_prd: file://../../katas/teampulse/pipeline-3-stage/TeamPulse-PRD.md
+      architecture_document: file://../../katas/teampulse/pipeline-3-stage/TeamPulse-Architecture.md
+      ux_specification: file://../../katas/teampulse/pipeline-3-stage/TeamPulse-UX-Specification.md
+      tech_stack: file://../../app/techstack/PERN-stack.md
+      user_story: |
+        ### US-2.1 — Manager creates a new pulse survey
+        | Field | Value |
+        |-------|-------|
+        | **Story ID** | US-2.1 |
+        | **Type** | user |
+        | **Title** | Manager creates a new pulse survey |
+        | **Description** | **As a** manager, **I want** to create a new pulse survey with a title, team, frequency, start time, and 5–7 custom questions, **so that** I can collect feedback relevant to my team's current challenges. |
+        | **Priority** | P0 |
+        | **Traceability** | PRD: Use Case 1.1, Feature Summary; Architecture: §3.1, §4.1, §5.1, §6.1; UX: §3 Manager Goals, §4.1, §6.2, §7.1, §13 |
+        | **Dependencies** | **Blocked by:** US-1.1, TS-2.5, TS-2.6. **Blocks:** US-2.2, US-2.3, US-2.4, US-4.1, US-5.1, TS-2.7. **Related:** TS-4.2, TS-4.3 |
+
+        **Acceptance Criteria**
+
+        ```gherkin
+        Scenario: Manager successfully creates a survey
+          Given a manager is authenticated and on the create-survey page
+          When they enter a title, select a team, choose a frequency, set a future start date/time, and add 5–7 questions
+          And they submit the form
+          Then the survey is persisted
+          And a success message is displayed
+          And the survey appears on the dashboard with status "Active"
+        ```
+
+        ```gherkin
+        Scenario: Manager tries to create a survey with fewer than five questions
+          Given a manager is creating a survey
+          When they enter only 3 questions
+          And they submit the form
+          Then the form displays a validation error
+          And the survey is not created
+        ```
+
+        ```gherkin
+        Scenario: Manager tries to create a survey with a past start date
+          Given a manager is creating a survey
+          When they set the start date/time in the past
+          And they submit the form
+          Then the form displays a validation error
+          And the survey is not created
+        ```
+
+        ```gherkin
+        Scenario: No notifications are sent before the configured start time
+          Given a manager created a survey with a future start time
+          When the current time is before that start time
+          Then no survey invitations are sent
+          And no survey run is considered active
+        ```
+
+    assert:
+      - type: contains-any
+        value:
+          - "React"
+          - "Node.js"
+          - "PostgreSQL"
+      - type: llm-rubric
+        value: "Plan mentions specific technologies, libraries, or patterns from the implementation context"
+      - type: llm-rubric
+        value: "Plan includes implementation details that correspond to the acceptance criteria. Acceptance criteria are traceable to specific implementation steps"
+      - type: llm-rubric
+        value: "Plan includes API endpoints, database schemas, or other technical artifacts that are relevant to the user story"
+      - type: llm-rubric
+        value: "Plan is NOT too generic and aligns to the Tech Stack"
+
+  # ==========================================================================
+  # TEAMPULSE Python Stack - MongoDB (database), Python and FastAPI (backend), React (frontend)
+  # ==========================================================================
+  - description: "Plan Story for Python with MongoDB database stack"
+    vars:
+      # markdown_content: file://../../katas/teampulse/exercises/teampulse-epics-stories.md
+      product_prd: file://../../katas/teampulse/pipeline-3-stage/TeamPulse-PRD.md
+      architecture_document: file://../../katas/teampulse/pipeline-3-stage/TeamPulse-Architecture.md
+      ux_specification: file://../../katas/teampulse/pipeline-3-stage/TeamPulse-UX-Specification.md
+      tech_stack: file://../../app/techstack/Python-stack.md
+      user_story: |
+       ### US-2.1 — Manager creates a new pulse survey
+        | Field | Value |
+        |-------|-------|
+        | **Story ID** | US-2.1 |
+        | **Type** | user |
+        | **Title** | Manager creates a new pulse survey |
+        | **Description** | **As a** manager, **I want** to create a new pulse survey with a title, team, frequency, start time, and 5–7 custom questions, **so that** I can collect feedback relevant to my team's current challenges. |
+        | **Priority** | P0 |
+        | **Traceability** | PRD: Use Case 1.1, Feature Summary; Architecture: §3.1, §4.1, §5.1, §6.1; UX: §3 Manager Goals, §4.1, §6.2, §7.1, §13 |
+        | **Dependencies** | **Blocked by:** US-1.1, TS-2.5, TS-2.6. **Blocks:** US-2.2, US-2.3, US-2.4, US-4.1, US-5.1, TS-2.7. **Related:** TS-4.2, TS-4.3 |
+
+        **Acceptance Criteria**
+
+        ```gherkin
+        Scenario: Manager successfully creates a survey
+          Given a manager is authenticated and on the create-survey page
+          When they enter a title, select a team, choose a frequency, set a future start date/time, and add 5–7 questions
+          And they submit the form
+          Then the survey is persisted
+          And a success message is displayed
+          And the survey appears on the dashboard with status "Active"
+        ```
+
+        ```gherkin
+        Scenario: Manager tries to create a survey with fewer than five questions
+          Given a manager is creating a survey
+          When they enter only 3 questions
+          And they submit the form
+          Then the form displays a validation error
+          And the survey is not created
+        ```
+
+        ```gherkin
+        Scenario: Manager tries to create a survey with a past start date
+          Given a manager is creating a survey
+          When they set the start date/time in the past
+          And they submit the form
+          Then the form displays a validation error
+          And the survey is not created
+        ```
+
+        ```gherkin
+        Scenario: No notifications are sent before the configured start time
+          Given a manager created a survey with a future start time
+          When the current time is before that start time
+          Then no survey invitations are sent
+          And no survey run is considered active
+        ```
+
+    assert:
+      - type: contains-any
+        value:
+          - "Python"
+          - "FastAPI"
+          - "MongoDB"
+      - type: llm-rubric
+        value: "Plan mentions specific technologies, libraries, or patterns from the implementation context"
+      - type: llm-rubric
+        value: "Plan includes implementation details that correspond to the acceptance criteria. Acceptance criteria are traceable to specific implementation steps"
+      - type: llm-rubric
+        value: "Plan includes API endpoints, database schemas, or other technical artifacts that are relevant to the user story"
+      - type: llm-rubric
+        value: "Plan is NOT too generic and aligns to the Tech Stack"

@@ -50,11 +50,11 @@ Consider key architectural decisions (ADRs), trade-offs, or areas that require f
 
 ---
 
-Product Description:
+**Product Description:**
 {{product_description}}
 
-PRD:
+**PRD:**
 {{product_prd}}
 
-Tech Stack:
+**Tech Stack:**
 {{tech_stack}}

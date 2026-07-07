@@ -58,8 +58,8 @@ A UX Specification document includes the following sections to assist developers
 
 ---
 
-Product Description:
+**Product Description:**
 {{product_description}}
 
-PRD:
+**PRD:**
 {{product_prd}}

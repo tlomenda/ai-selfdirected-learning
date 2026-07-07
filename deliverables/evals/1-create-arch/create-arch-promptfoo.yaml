@@ -31,8 +31,8 @@ tests:
   # TC-P1: PRD Structure and Completeness (Pomodoro)
   - description: "Architecture Document Structure"
     vars:
-      product_description: file://../../katas/pomodoro/product-pomodoro.md
-      product_prd: file://../../katas/pomodoro/pomodoro-prd-sonnet.md
+      product_description: file://../../katas/pomodoro/exercises/product-pomodoro.md
+      product_prd: file://../../katas/pomodoro/exercises/pomodoro-prd-sonnet.md
       tech_stack: file://../../app/techstack/browser-stack.md
     assert:
       - type: llm-rubric
@@ -59,7 +59,7 @@ tests:
   - description: "Architecture Document Structure with React/Node.js/PostgreSQL"
     vars:
       product_description: file://../../katas/teampulse/product-teampulse.md
-      product_prd: file://../../katas/teampulse/teampulse-prd-final.md
+      product_prd: file://../../katas/teampulse/exercises/teampulse-prd-final.md
       tech_stack: file://../../app/techstack/PERN-stack.md
     assert:
       - type: contains-all
