@@ -1,0 +1,66 @@
+
+description: EDD - Review Implementation
+
+prompts:
+  - id: file://review-implementation.md
+    label: eval-prompt
+  - id: eval-markdown
+    label: eval-markdown
+    raw: "{{markdown_content}}"
+
+defaultTest:
+  options:
+    provider: 'exec: node ./../devin.js'
+
+providers:
+  - id: 'exec: node ./../evaluate-markdown.js'
+    label: markdown
+    config:
+      model: markdown
+  - id: 'exec: node ./../devin.js'
+    label: sonnet
+    config:
+      model: sonnet
+  - id: 'exec: node ./../devin.js'
+    label: haiku
+    config:
+      model: haiku
+
+tests:
+  # ==========================================================================
+  # TEAMPULSE Review Implementation
+  # ==========================================================================
+  - description: "Review Implementation of a user story for TeamPulse"
+    vars:
+      # markdown_content: file://epics-stories-result.md
+      story: file://story.md
+      technical_plan: file://technical-plan.md
+    assert:
+      - type: llm-rubric
+        value: "Pass/fail per acceptance criterion"
+      - type: llm-rubric
+        value: "Specific issues with file/line references"
+        threshold: 0.8
+      - type: llm-rubric
+        value: "A clear overall verdict of the implementation quality"
+        threshold: 0.8
+      - type: llm-rubric
+        value: "The review notes what was done well, not only what's wrong (useful signal for what *not* to change)"
+      - type: llm-rubric
+        value: "The overall verdict weighs severity/count of issues appropriately (e.g. one critical issue isn't buried among ten trivial nitpicks, and isn't treated the same as ten trivial nitpicks)"
+        threshold: 0.8
+      - type: llm-rubric
+        value: "Where the implementation diverges from stack conventions (e.g. raw SQL instead of parameterized queries, missing transaction), it's called out specifically"
+        threshold: 0.8
+      - type: llm-rubric
+        value: "The review must cite specific code, not general observations like 'error handling could be improved'"
+        threshold: 0.8
+      - type: llm-rubric
+        value: "Every acceptance criterion must be explicitly addressed in the review"
+        threshold: 0.8
+      - type: llm-rubric
+        value: "Each identified issue includes a concrete suggested fix or next step, not just a description of the problem"
+        threshold: 0.8
+      - type: llm-rubric
+        value: "Issues are distinguishable as blocking vs. non-blocking (e.g. 'must fix before merge' vs. 'nice to have')"
+        threshold: 0.8

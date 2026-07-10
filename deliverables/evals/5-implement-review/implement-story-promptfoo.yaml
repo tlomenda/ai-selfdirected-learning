@@ -1,0 +1,60 @@
+
+description: EDD - Implement Story
+
+prompts:
+  - id: file://eval-prompt-harness.js
+    label: eval-prompt
+  - id: eval-markdown
+    label: eval-markdown
+    raw: "{{markdown_content}}"
+
+defaultTest:
+  options:
+    provider: 'exec: node ./../devin.js'
+
+providers:
+  - id: 'exec: node ./../evaluate-markdown.js'
+    label: markdown
+    config:
+      model: markdown
+  - id: 'exec: node ./../devin.js'
+    label: sonnet
+    config:
+      model: sonnet
+  - id: 'exec: node ./../devin.js'
+    label: haiku
+    config:
+      model: haiku
+
+tests:
+  # ==========================================================================
+  # TEAMPULSE Story Implementation
+  # ==========================================================================
+  - description: "Implement a user story for TeamPulse"
+    vars:
+      markdown_content: file://implement-story-result.md
+      implement_story_prompt: file://implement-story.md
+
+      story: file://UC-3.3-Story.md
+      technical_plan: file://UC-3.3-Plan.md
+
+      frontend_code: file://../../app/codestyle/codestyle-react.md
+      backend_code: file://../../app/codestyle/codestyle-node.md
+      db_code: file://../../app/codestyle/codestyle-postgres.md
+    assert:
+      - type: llm-rubric
+        value: "Non-trivial logic derived from the user story and technical plan has a unit test"
+      - type: llm-rubric
+        value: "Tests assert on behavior/output, mocking implementation details as needed."
+      - type: llm-rubric
+        value: "Every acceptance criterion has at least one test mapped to it (traceable — not just 'some tests exist somewhere')"
+      - type: llm-rubric
+        value: "Tests cover expected behavior and key edge cases."
+      - type: llm-rubric
+        value: "DO NOT tightly couple Tests with other tests, making them brittle to refactoring."
+      - type: llm-rubric
+        value: "Tests use Jest for backend testing."
+      - type: llm-rubric
+        value: "Unit Tests DO NOT use external dependencies that are not properly isolated or mocked."
+      - type: llm-rubric
+        value: "Tests DO NOT use unapproved dependency or framework other than the approved ones: Jest, Cypress, Vitest, or Playwright."

@@ -1,5 +1,5 @@
 
-description: EDD - Create UX Specification Document
+description: EDD - Create Epics and User Stories
 
 prompts:
   - id: file://create-epics-stories.md
@@ -28,7 +28,7 @@ providers:
 
 tests:
   # ==========================================================================
-  # TEAMPULSE PRD, Architecture Document, UX Specification
+  # TEAMPULSE Epics & Stories
   # ==========================================================================
   - description: "Epics and User Stories for TeamPulse"
     vars:
