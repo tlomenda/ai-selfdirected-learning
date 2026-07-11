@@ -126,3 +126,5 @@ If documents appear to conflict:
 
 **UX Specification:**
 {{ux_specification}}
+
+---

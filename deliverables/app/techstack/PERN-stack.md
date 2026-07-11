@@ -1,4 +1,4 @@
-# Postgres-Express-React-Node (PERN) Stack
+**Postgres-Express-React-Node (PERN) Stack**
 
 **Tech stack**: PostgreSQL (database), Express.js and Node.js (backend), React (frontend)
 

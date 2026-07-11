@@ -15,14 +15,20 @@ defaultTest:
 providers:
   - id: 'exec: node ./../evaluate-markdown.js'
     label: markdown
+    prompts:
+      - eval-markdown
     config:
       model: markdown
   - id: 'exec: node ./../devin.js'
     label: sonnet
+    prompts:
+      - eval-prompt
     config:
       model: sonnet
   - id: 'exec: node ./../devin.js'
     label: haiku
+    prompts:
+      - eval-prompt
     config:
       model: haiku
 

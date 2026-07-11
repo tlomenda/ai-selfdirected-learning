@@ -1,4 +1,4 @@
-# Python-FastAPI-React Stack
+**Python-FastAPI-React Stack**
 
 **Tech stack**: MongoDB (database), Python and FastAPI (backend), React (frontend)
 

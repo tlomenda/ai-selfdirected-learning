@@ -56,3 +56,6 @@ The audience for this PRD is a solo developer or small development team building
 
 **Product Description:**
 {{product_description}}
+
+---
+

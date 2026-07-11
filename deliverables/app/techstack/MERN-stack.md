@@ -1,4 +1,4 @@
-# MongoDB-Express-React-Node (MERN) Stack
+**MongoDB-Express-React-Node (MERN) Stack**
 
 **Tech stack**: MongoDB (database, Express.js and Node.js (backend), React (frontend)
 

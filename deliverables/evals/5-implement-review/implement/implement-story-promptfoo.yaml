@@ -10,19 +10,25 @@ prompts:
 
 defaultTest:
   options:
-    provider: 'exec: node ./../devin.js'
+    provider: 'exec: node ./../../devin.js'
 
 providers:
-  - id: 'exec: node ./../evaluate-markdown.js'
+  - id: 'exec: node ./../../evaluate-markdown.js'
     label: markdown
+    prompts:
+      - eval-markdown
     config:
       model: markdown
-  - id: 'exec: node ./../devin.js'
+  - id: 'exec: node ./../../devin.js'
     label: sonnet
+    prompts:
+      - eval-prompt
     config:
       model: sonnet
-  - id: 'exec: node ./../devin.js'
+  - id: 'exec: node ./../../devin.js'
     label: haiku
+    prompts:
+      - eval-prompt
     config:
       model: haiku
 
@@ -35,12 +41,13 @@ tests:
       markdown_content: file://implement-story-result.md
       implement_story_prompt: file://implement-story.md
 
-      story: file://UC-3.3-Story.md
-      technical_plan: file://UC-3.3-Plan.md
+      story: file://../UC-3.3-Story.md
+      technical_plan: file://../UC-3.3-Plan.md
+      tech_stack: file://../../../app/techstack/PERN-stack.md
 
-      frontend_code: file://../../app/codestyle/codestyle-react.md
-      backend_code: file://../../app/codestyle/codestyle-node.md
-      db_code: file://../../app/codestyle/codestyle-postgres.md
+      frontend_code: file://../../../app/codestyle/codestyle-react.md
+      backend_code: file://../../../app/codestyle/codestyle-node.md
+      db_code: file://../../../app/codestyle/codestyle-postgres.md
     assert:
       - type: llm-rubric
         value: "Non-trivial logic derived from the user story and technical plan has a unit test"

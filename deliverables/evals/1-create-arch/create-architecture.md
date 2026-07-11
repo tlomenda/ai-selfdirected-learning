@@ -58,3 +58,6 @@ Consider key architectural decisions (ADRs), trade-offs, or areas that require f
 
 **Tech Stack:**
 {{tech_stack}}
+
+---
+
