@@ -38,9 +38,10 @@ tests:
   # ==========================================================================
   - description: "Review Implementation of a user story for TeamPulse"
     vars:
-      # markdown_content: file://epics-stories-result.md
-      story: file://story.md
-      technical_plan: file://technical-plan.md
+      # markdown_content: file://review-result.md
+      story: file://../UC-3.3-Story.md
+      technical_plan: file://../UC-3.3-Plan.md
+      code_implementation: file://../implement/implement-story-result-rd2.md
     assert:
       - type: llm-rubric
         value: "Pass/fail per acceptance criterion"

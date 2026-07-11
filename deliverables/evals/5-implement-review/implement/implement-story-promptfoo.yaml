@@ -38,7 +38,8 @@ tests:
   # ==========================================================================
   - description: "Implement a user story for TeamPulse"
     vars:
-      markdown_content: file://implement-story-result.md
+      markdown_content: file://implement-story-result-rd1.md
+      # markdown_content: file://implement-story-result-rd2.md
       implement_story_prompt: file://implement-story.md
 
       story: file://../UC-3.3-Story.md
@@ -58,9 +59,9 @@ tests:
       - type: llm-rubric
         value: "Tests cover expected behavior and key edge cases."
       - type: llm-rubric
-        value: "DO NOT tightly couple Tests with other tests, making them brittle to refactoring."
+        value: "DO NOT tightly couple unit tests with other unit tests, making them brittle to refactoring."
       - type: llm-rubric
-        value: "Tests use Jest for backend testing."
+        value: "Tests use Vitest and/or Jest for unit testing."
       - type: llm-rubric
         value: "Unit Tests DO NOT use external dependencies that are not properly isolated or mocked."
       - type: llm-rubric
