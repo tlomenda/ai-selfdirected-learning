@@ -37,6 +37,3 @@ A useful review should also be specific when identifying issues:
 - DO NOT flag issues with no concrete suggested fix or next step.
 - Watch for acceptance criterion marked pass/fail with no supporting evidence from the code
 
-**Code Implementation Directory:**
-{{code_implementation}}
-

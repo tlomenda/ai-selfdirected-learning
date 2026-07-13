@@ -10,13 +10,17 @@ Given a Story (user or technical) with Acceptance Criteria and a Technical Plan,
 
 The Story and Technical Plan outline the acceptance criteria used for test coverage and the plan used for implementation. Along with the technical plan, review the tech stack and coding guidelines for added context.
 
-**Tech Stack:**
-{{tech_stack}}
-
 - Clean code: a clean separation between the frontend and backend codebases, clean separation of source and test code
 - Code that uses the coding guidelines provided
-- Tested code coverage: EVERY Acceptance Criteria should have at least 1 corresponding unit test covering it.
 - If you need a project file and it does not exist, scaffold as needed.
+
+Follow good test practices:
+- Unit tests should be traced back to the accetance criteria by adding a comment or attribute to the test.
+- Tested code coverage: EVERY Acceptance Criteria should have at least 1 corresponding unit test covering it.
+- Integration and end-to-end tests should cover key scenarioes, main user flows and key business logic. They should be traced back to story behavior-driven AC scenarios.
+
+**Tech Stack:**
+{{tech_stack}}
 
 ## Constraints
 
