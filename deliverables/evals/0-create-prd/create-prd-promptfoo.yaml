@@ -1,20 +1,34 @@
 description: EDD - Create Product Requirements Document (PRD)
 
 prompts:
-  - file://create-prd.md
+  - id: file://create-prd.md
+    label: eval-prompt
+  - id: eval-markdown
+    label: eval-markdown
+    raw: "{{markdown_content}}"
 
 # Route llm-rubric grading through the Devin CLI — no API key needed
 defaultTest:
   options:
-    provider: 'exec: node ./devin.js'
+    provider: 'exec: node ./../devin.js'
 
 providers:
-  - id: 'exec: node ./devin.js'
+  - id: 'exec: node ./../evaluate-markdown.js'
+    label: markdown
+    prompts:
+      - eval-markdown
+    config:
+      model: markdown
+  - id: 'exec: node ./../devin.js'
     label: sonnet
+    prompts:
+      - eval-prompt
     config:
       model: sonnet
-  - id: 'exec: node ./devin.js'
+  - id: 'exec: node ./../devin.js'
     label: haiku
+    prompts:
+      - eval-prompt
     config:
       model: haiku
 
@@ -231,3 +245,4 @@ tests:
         value: "The PRD enables a solo developer to scope and begin work without inventing undocumented requirements — no critical implementation detail is left entirely unaddressed."
       - type: llm-rubric
         value: "Requirements include developer-actionable specifics: at least one measurable NFR threshold, at least one data schema or model reference, and at least one described integration point."
+        

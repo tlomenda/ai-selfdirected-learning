@@ -4,6 +4,6 @@
 
 **Build Tool**: Vite for frontend, npm and tpc (Typescript Compiler) for backend
 
-**Testing**: vitest for frontend, Jest for backend, Playwright for E2E tests
+**Testing**: vitest + react-testing-library for frontend, Jest for backend, Playwright for E2E tests
 
 **Constraints**: 

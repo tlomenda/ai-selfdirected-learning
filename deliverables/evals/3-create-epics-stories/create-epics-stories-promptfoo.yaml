@@ -45,44 +45,31 @@ tests:
     assert:
       - type: llm-rubric
         value: "A story is clear enough to be designed, implemented, tested, and accepted as a deliverable increment of value."
-
       - type: llm-rubric
         value: "A story should represent a testable slice of user value that can be completed and accepted."
-
       - type: llm-rubric
         value: "A story description should not describe multiple user-observed outcomes (ie: description contains 'also' or 'as well as' connecting independent behaviors)."
-
       - type: llm-rubric
         value: "User Story - not technical story - acceptance criteria validates user behavior (ie: has an observable input, a measurable outcome/result or threshold)."
-
       - type: llm-rubric
         value: "Story acceptance criteria outcomes/results are testable and measurable (ie: AC can be turned into an automated test assertion or a strict yes/no manual check)"
-
       - type: llm-rubric
         value: "Story acceptance criteria has at least one happy path scenario with Given-When-Then format."
-
       - type: llm-rubric
         value: "Story acceptance criteria has at least one edge case or error scenario with Given-When-Then format."
-
       - type: llm-rubric
         value: "Story acceptance criteria iS NOT subjective, vague or unclear. (Ignore language related to UI messages)."
-
       - type: llm-rubric
         value: "Each story represents a distinct increment of functionality."
-
       - type: llm-rubric
         value: "Each story that depends on another story before it can be implemented, tested, or provide value must explicitly identify that dependency."
-
       - type: llm-rubric
         value: "Each functional requirement described in the PRD is represented by one or more epics or user stories."
-
       - type: llm-rubric
         value: "Stories do NOT describe the same capability or primary deliverable as another story."
-
       - type: llm-rubric
         value: "Stories do NOT substantially duplicate each other (primary purpose and majority of acceptance criteria are the same)."
         threshold: 0.5
-
       - type: llm-rubric
         value: "Stories do NOT implement the essentially the same functionality as another story."
         threshold: 0.8

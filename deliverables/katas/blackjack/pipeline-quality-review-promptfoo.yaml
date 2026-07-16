@@ -1,0 +1,85 @@
+description: Kata - Blackjack Pipeline Quality Review
+
+prompts:
+  - id: eval-markdown
+    label: eval-markdown
+    raw: "{{markdown_content}}"
+
+# Route llm-rubric grading through the Devin CLI — no API key needed
+defaultTest:
+  options:
+    provider: 'exec: node ./../../evals/devin.js'
+
+providers:
+  - id: 'exec: node ./../../evals/evaluate-markdown.js'
+    label: markdown
+    prompts:
+      - eval-markdown
+    config:
+      model: markdown
+
+tests:
+  # ==========================================================================
+  # DEVLOG TEST CASES
+  # Product description included in each test so the prompt remains generic.
+  # ==========================================================================
+
+  # TC-T1: PRD Quality Checks
+  - description: "PRD Document Completeness (Blackjack)"
+    vars:
+      markdown_content: file://sdlc-pipeline/blackjack-prd.md
+    assert:
+      - type: llm-rubric
+        value: "PRD contains all 7 required sections: Product Overview, Features, Non-Functional Requirements, Key Implementation Details, Scope Boundaries, Open Questions, and Change Log."
+      - type: llm-rubric
+        value: "Product Overview includes both a Problem Statement and stated Goals with success indicators."
+      - type: llm-rubric
+        value: "Features section defines at least 2 distinct personas — Developer and Manager —
+          each with their own described interactions and access scope."
+      - type: llm-rubric
+        value: "Non-Functional Requirements section includes at least one suggested tool or verification method per NFR — not just 'manual review'."
+      - type: llm-rubric
+        value: "Change Log contains at least one initial version entry with a version number and a date."
+      - type: llm-rubric
+        value: "Open Questions section contains at least 3 unresolved questions relevant to implementation that are not trivially answerable from the product description."
+      - type: llm-rubric
+        value: "The PRD is not generic — it references the DevLog-specific tech stack, roles, and context from the product description."
+      - type: llm-rubric
+        value: "Scope Boundaries explicitly names all 4 V1 out-of-scope items: - AI summarization, sentiment analysis, cross-team comparisons, integrations other than Slack."
+      - type: llm-rubric
+        value: "The PRD enables a solo developer to scope and begin work with critical implementation details and open questions clearly identified."
+      - type: llm-rubric
+        value: "Requirements include developer-actionable specifics: at least one measurable NFR threshold, at least one data schema or model reference, and at least one described integration point."
+    
+  # TC-T2: ARCH Document Quality Checks
+  - description: "Architecture Document Structure (Blackjack)"
+    vars:
+      markdown_content: file://sdlc-pipeline/blackjack-arch.md
+    assert:
+      - type: contains-all
+        value:
+          - "Python"
+          - "FastAPI"
+          - "PostgreSQL"
+      - type: llm-rubric
+        value: "Contains required sections and includes mermaid diagrams"
+      - type: llm-rubric
+        value: "Includes a description of the purpose, goals, and high-level architecture"
+      - type: llm-rubric
+        value: "Includes C4 Modeling concepts for the architecture and design"
+      - type: llm-rubric
+        value: "Includes system/application boundaries and interfaces"
+      - type: llm-rubric
+        value: "Includes data flow and interactions"
+      - type: llm-rubric
+        value: "Includes security and compliance requirements"
+      - type: llm-rubric
+        value: "Includes performance and scalability requirements"
+
+  # TC-T3: UX Spec Doc Quality Checks
+  - description: "UX Specification Document Structure (Blackjack)"
+    vars:
+      markdown_content: file://sdlc-pipeline/blackjack-ux.md
+    assert:
+      - type: llm-rubric
+        value: ""

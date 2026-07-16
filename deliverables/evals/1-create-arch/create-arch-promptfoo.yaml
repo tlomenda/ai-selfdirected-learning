@@ -1,7 +1,11 @@
 description: EDD - Create Architecture Document
 
 prompts:
-  - file://create-architecture.md
+  - id: file://create-architecture.md
+    label: eval-prompt
+  - id: eval-markdown
+    label: eval-markdown
+    raw: "{{markdown_content}}"
 
 # Route llm-rubric grading through the Devin CLI — no API key needed
 defaultTest:
@@ -9,18 +13,24 @@ defaultTest:
     provider: 'exec: node ./../devin.js'
 
 providers:
+  - id: 'exec: node ./../evaluate-markdown.js'
+    label: markdown
+    prompts:
+      - eval-markdown
+    config:
+      model: markdown
   - id: 'exec: node ./../devin.js'
     label: sonnet
+    prompts:
+      - eval-prompt
     config:
       model: sonnet
   - id: 'exec: node ./../devin.js'
     label: haiku
+    prompts:
+      - eval-prompt
     config:
       model: haiku
-  - id: 'exec: node ./../devin.js'
-    label: swe-1.6
-    config:
-      model: swe-1.6
 
 tests:
   # ==========================================================================
@@ -108,4 +118,3 @@ tests:
         value: "Includes security and compliance requirements"
       - type: llm-rubric
         value: "Includes performance and scalability requirements"
-      

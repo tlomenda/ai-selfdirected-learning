@@ -36,7 +36,7 @@ tests:
   # ==========================================================================
   # TEAMPULSE Story Implementation
   # ==========================================================================
-  - description: "Implement a user story for TeamPulse"
+  - description: "review Implementation for TeamPulse"
     vars:
       markdown_content: file://implement-story-result-rd1.md
       # markdown_content: file://implement-story-result-rd2.md
