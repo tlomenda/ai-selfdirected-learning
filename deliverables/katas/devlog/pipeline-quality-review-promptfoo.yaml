@@ -95,7 +95,7 @@ tests:
       - type: llm-rubric
         value: "Explicitly addresses mobile responsiveness with specific breakpoints."
       - type: llm-rubric
-        value: "Defines explicit system reponse time targets"
+        value: "Defines explicit system response time targets"
       - type: llm-rubric
         value: "Covers accessibility requirements including WCAG 2.1 AA, color contrast, keyboard navigation, and ARIA labels."
         threshold: 0.7
@@ -190,7 +190,7 @@ tests:
       - type: llm-rubric
         value: "Tests DO NOT use unapproved dependency or framework other than the approved ones: pytest, react-testing-library, Jest, Vitest, or Playwright."
 
-  # TC-T6: Review Implementation
+  # TC-T7: Review Implementation
   - description: "Review implementation (DevLog)"
     vars:
       markdown_content: file://sdlc-pipeline/devlog-us1-1-review.md

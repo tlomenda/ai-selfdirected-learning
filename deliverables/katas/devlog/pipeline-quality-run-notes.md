@@ -1,4 +1,4 @@
-## SDLC Pipeline Run Notes — DevLog — [date]
+## SDLC Pipeline Run Notes — DevLog — Jul 18
 
 ### Output Quality by Stage
 **Create PRD:** [10/10 Ran create-prd-promptfoo.yaml against output from create-prd command for Devlog completeness and developer readiness]
@@ -22,5 +22,6 @@ Hypothesis: Use higher reasoning model (Sonnet) for upfront PRD and Architecture
 Rubric returned an overall score of 0.3. Many of the criteria were objective and measurable, but because there were some AC with vague language this was called out.
 
 ### Upstream Dependency Trace
-Vague language in the AC can be traced back to the PRD - where past PRD generation using a higher reasoning model produced less
-vague language in downstream AC. Hypotheis: experiment with adding more context to the PRD prompt to ensure that requirements coverage is more specific and measurable.
+Vague language in the AC can be traced back to the PRD - where past PRD generation using a higher reasoning model produced more specific language and less vagueness in downstream AC. 
+
+Hypotheis: experiment with adding more context to the PRD prompt to ensure that requirements coverage is more specific and measurable.

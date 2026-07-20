@@ -2,10 +2,10 @@
 
 **Browser-based (HTML5, CSS3, JavaScript) Stack**
 
-**Tech stack**: HTML5, CSS3, JavaScript
+**Tech stack**: HTML5, CSS3, JavaScript leveraging React to build dynamic user interfaces 
 
 **Build Tool**: Vite (dev server + bundler), with PostCSS/Autoprefixer for CSS and ESLint/Prettier for linting/formatting
 
-**Testing**: Vitest (unit tests) and Playwright (end-to-end/cross-browser tests)
+**Testing**: vitest + react-testing-library (unit tests) and Playwright (end-to-end/cross-browser tests)
 
 **Constraints**: 

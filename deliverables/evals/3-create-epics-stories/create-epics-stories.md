@@ -67,6 +67,8 @@ The PRD, Architecture Document, and UX Specification describe the scoped product
 - Split stories whenever they become too large
 - Split stories whenever they become too complex (ie: has multiple objectives)
 
+**ALL deliverable Stories MUST provide full story details for planning**
+
 **Create technical stories whenever necessary for:**
 - APIs
 - Database changes

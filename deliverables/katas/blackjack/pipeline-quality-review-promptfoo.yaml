@@ -20,47 +20,47 @@ providers:
 
 tests:
   # ==========================================================================
-  # DEVLOG TEST CASES
+  # BlackJack TEST CASES
   # Product description included in each test so the prompt remains generic.
   # ==========================================================================
 
   # TC-T1: PRD Quality Checks
   - description: "PRD Document Completeness (Blackjack)"
     vars:
-      markdown_content: file://sdlc-pipeline/blackjack-prd.md
+      markdown_content: file://sdlc-pipeline/blackjack-prd-sonnet.md
     assert:
       - type: llm-rubric
         value: "PRD contains all 7 required sections: Product Overview, Features, Non-Functional Requirements, Key Implementation Details, Scope Boundaries, Open Questions, and Change Log."
       - type: llm-rubric
-        value: "Product Overview includes both a Problem Statement and stated Goals with success indicators."
+        value: "Product Overview includes both a Problem Statement and stated Goals to track success."
       - type: llm-rubric
-        value: "Features section defines at least 2 distinct personas — Developer and Manager —
-          each with their own described interactions and access scope."
+        value: "Features section defines a Blackjack Learner persona."
       - type: llm-rubric
         value: "Non-Functional Requirements section includes at least one suggested tool or verification method per NFR — not just 'manual review'."
+        threshold: 0.8
       - type: llm-rubric
         value: "Change Log contains at least one initial version entry with a version number and a date."
       - type: llm-rubric
         value: "Open Questions section contains at least 3 unresolved questions relevant to implementation that are not trivially answerable from the product description."
       - type: llm-rubric
-        value: "The PRD is not generic — it references the DevLog-specific tech stack, roles, and context from the product description."
+        value: "The PRD is not generic — it references the specific tech stack, roles, and context from the product description."
       - type: llm-rubric
-        value: "Scope Boundaries explicitly names all 4 V1 out-of-scope items: - AI summarization, sentiment analysis, cross-team comparisons, integrations other than Slack."
+        value: "Scope Boundaries explicitly names all 4 V1 out-of-scope items: - Hi-Lo card counting, configurable house rules, EV of each possible decision, and training mode."
       - type: llm-rubric
         value: "The PRD enables a solo developer to scope and begin work with critical implementation details and open questions clearly identified."
       - type: llm-rubric
-        value: "Requirements include developer-actionable specifics: at least one measurable NFR threshold, at least one data schema or model reference, and at least one described integration point."
+        value: "Requirements include developer-actionable specifics: at least one measurable NFR threshold and no integration points (browser client-side only)"
     
   # TC-T2: ARCH Document Quality Checks
   - description: "Architecture Document Structure (Blackjack)"
     vars:
-      markdown_content: file://sdlc-pipeline/blackjack-arch.md
+      markdown_content: file://sdlc-pipeline/blackjack-arch-sonnet.md
     assert:
       - type: contains-all
         value:
-          - "Python"
-          - "FastAPI"
-          - "PostgreSQL"
+          - "React"
+          - "HTML5"
+          - "CSS3"
       - type: llm-rubric
         value: "Contains required sections and includes mermaid diagrams"
       - type: llm-rubric
@@ -76,10 +76,152 @@ tests:
       - type: llm-rubric
         value: "Includes performance and scalability requirements"
 
-  # TC-T3: UX Spec Doc Quality Checks
+  # TC-T3: UX Spec Document Quality Checks
   - description: "UX Specification Document Structure (Blackjack)"
     vars:
       markdown_content: file://sdlc-pipeline/blackjack-ux.md
     assert:
       - type: llm-rubric
-        value: ""
+        value: "Contains key UX sections: Overview, Target Users & Personas, User Goals, User Flows, Information Architecture, Screen Specifications, Interaction Design, Edge Cases, Accessibility/."
+        threshold: 0.8
+      - type: llm-rubric
+        value: "Defines key UI components (inputs, controls, containers, navigation) with descriptions."
+      - type: llm-rubric
+        value: "Defines clear user flows for user personas."
+      - type: llm-rubric
+        value: "Developer UX is comprehensive and detailed. It highlights interaction, accessibility, responsiveness, and extensive acceptance criteria. This representing a thorough, methodical approach to playing and learning the game of Blackjack."
+
+      - type: llm-rubric
+        value: "UX focused on individual learners practicing basic strategy."
+      - type: llm-rubric
+        value: "Explicitly addresses mobile responsiveness with specific breakpoints."
+      - type: llm-rubric
+        value: "Defines the responsiveness of the application."
+      - type: llm-rubric
+        value: "Covers accessibility requirements including WCAG 2.1 AA, color contrast, keyboard navigation, and ARIA labels."
+        threshold: 0.7
+      - type: llm-rubric
+        value: "Covers 'Information Architecture' detailing page structure and data hierarchy."
+      - type: llm-rubric
+        value: "Describes game screens, user flows, card displays, and game mechanics."
+      - type: llm-rubric
+        value: "Defines a comprehensive screen flow for a player learning how to play Blackjack."
+      - type: llm-rubric
+        value: "Covers screen specifications with detailed component breakdowns, visual design guidelines, and interaction patterns."
+      - type: llm-rubric
+        value: "Covers edge cases and recovery paths for game logic (New Session button, bust scenarios)."
+      - type: llm-rubric
+        value: "Provides sufficient specification detail for a developer to start implementation."
+
+  # TC-T4: Epics & Stories Quality Checks
+  - description: "Epics and User Stories (Blackjack)"
+    vars:
+      markdown_content: file://sdlc-pipeline/blackjack-epics-stories.md
+    assert:
+      - type: llm-rubric
+        value: "A story is clear enough to be designed, implemented, tested, and accepted as a deliverable increment of value."
+      - type: llm-rubric
+        value: "A story should represent a testable slice of user value that can be completed and accepted."
+      - type: llm-rubric
+        value: "A story description should not describe multiple user-observed outcomes (ie: description contains 'also' or 'as well as' connecting independent behaviors)."
+      - type: llm-rubric
+        value: "User Story - not technical story - acceptance criteria validates user behavior (ie: has an observable input, a measurable outcome/result or threshold)."
+      - type: llm-rubric
+        value: "Majority of Story acceptance criteria outcomes/results are testable and measurable (ie: AC can be turned into an automated test assertion or a strict yes/no manual check)."
+        threshold: 0.8
+      - type: llm-rubric
+        value: "Story acceptance criteria has at least one happy path scenario with Given-When-Then format."
+      - type: llm-rubric
+        value: "Story acceptance criteria has at least one edge case or error scenario with Given-When-Then format."
+      - type: llm-rubric
+        value: "Most Story acceptance criteria is objective and testable. Phrases like 'visible and prominent', 'clearly communicated' are acceptable - even though open to interpretation."
+      - type: llm-rubric
+        value: "Each story represents a distinct increment of functionality."
+      - type: llm-rubric
+        value: "Each story that depends on another story before it can be implemented, tested, or provide value must explicitly identify that dependency."
+      - type: llm-rubric
+        value: "Each functional requirement described in the PRD is represented by one or more epics or user stories."
+      - type: llm-rubric
+        value: "Stories do NOT describe the same capability as another story."
+      - type: llm-rubric
+        value: "Stories do NOT substantially duplicate each other (primary purpose and majority of acceptance criteria are the same)."
+        threshold: 0.5
+      - type: llm-rubric
+        value: "Stories do NOT implement the essentially the same functionality as another story."
+        threshold: 0.8
+
+  # TC-T5: Plan Story Quality Checks
+  - description: "Plan Story for browser-only stack (BlackJack)"
+    vars:
+      markdown_content: file://sdlc-pipeline/blackjack-us1-2-plan.md
+    assert:
+      - type: contains-any
+        value:
+          - "React"
+          - "HTML5"
+          - "CSS3"
+      - type: llm-rubric
+        value: "Plan mentions specific technologies, libraries, or patterns from the implementation context"
+      - type: llm-rubric
+        value: "Plan includes implementation details that correspond to the acceptance criteria. Acceptance criteria are traceable to specific implementation steps"
+      - type: llm-rubric
+        value: "Plan includes API endpoints, database schemas, or other technical artifacts that are relevant to the user story"
+      - type: llm-rubric
+        value: "Plan is NOT too generic and aligns to the Tech Stack"
+
+  # TC-T6: Implement Story Plan
+  - description: "Implement a user story (BlackJack)"
+    vars:
+      markdown_content: file://sdlc-pipeline/blackjack-us1-2-implementation.md
+    assert:
+      - type: llm-rubric
+        value: "Strategy recommendation logic derived from the user story and technical plan has a unit test"
+        threshold: 0.8
+      - type: llm-rubric
+        value: "Tests assert on behavior/output, mocking implementation details as needed."
+      - type: llm-rubric
+        value: "Strategy engine acceptance criterion are covered by tests."
+      - type: llm-rubric
+        value: "Strategy engine tests cover core behavior and key edge cases."
+      - type: llm-rubric
+        value: "DO NOT tightly couple unit tests with other unit tests, making them brittle to refactoring."
+      - type: llm-rubric
+        value: "Tests use Vitest for unit testing."
+      - type: llm-rubric
+        value: "Unit Tests DO NOT use external dependencies that are not properly isolated or mocked."
+      - type: llm-rubric
+        value: "Tests DO NOT use unapproved dependency or framework other than the approved ones: react-testing-library, Jest, Vitest, or Playwright."
+
+  # TC-T7: Review Implementation
+  - description: "Review implementation (BlackJack)"
+    vars:
+      markdown_content: file://sdlc-pipeline/blackjack-us1-2-review.md
+    assert:
+      - type: llm-rubric
+        value: "Pass/fail per acceptance criterion"
+      - type: llm-rubric
+        value: "Specific issues with file/line references"
+        threshold: 0.8
+      - type: llm-rubric
+        value: "A clear overall verdict of the implementation quality"
+        threshold: 0.8
+      - type: llm-rubric
+        value: "The review notes what was done well, not only what's wrong (useful signal for what *not* to change)"
+      - type: llm-rubric
+        value: "The overall verdict weighs severity/count of issues appropriately (e.g. one critical issue isn't buried among ten trivial nitpicks, and isn't treated the same as ten trivial nitpicks)"
+        threshold: 0.8
+      - type: llm-rubric
+        value: "For any technical issues that need to be addressed, the review identifies where these need to be addressed."
+        threshold: 0.8
+      - type: llm-rubric
+        value: "The review must cite specific code, not general observations like 'error handling could be improved'"
+        threshold: 0.8
+      - type: llm-rubric
+        value: "Every acceptance criterion must be explicitly addressed in the review"
+        threshold: 0.8
+      - type: llm-rubric
+        value: "Each identified issue includes a concrete suggested fix or next step, not just a description of the problem"
+        threshold: 0.7
+      - type: llm-rubric
+        value: "Issues are distinguishable as blocking vs. non-blocking (e.g. 'must fix before merge' vs. 'nice to have')"
+        threshold: 0.8
