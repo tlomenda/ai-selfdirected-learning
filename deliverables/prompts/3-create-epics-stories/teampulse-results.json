@@ -1157,7 +1157,7 @@
     "tags": {},
     "description": "EDD - Create UX Specification Document",
     "prompts": [
-      "file:///Users/tlomenda/Developer/projects/work/improving-state-of-ai/improving-deep-learning-program/ai-selfdirected-learning/deliverables/evals/3-create-epics-stories/create-epics-stories.md"
+      "file:///Users/tlomenda/Developer/projects/work/improving-state-of-ai/improving-deep-learning-program/ai-selfdirected-learning/deliverables/prompts/3-create-epics-stories/create-epics-stories.md"
     ],
     "providers": [
       {

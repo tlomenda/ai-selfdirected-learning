@@ -8,10 +8,10 @@ prompts:
 # Route llm-rubric grading through the Devin CLI — no API key needed
 defaultTest:
   options:
-    provider: 'exec: node ./../../evals/devin.js'
+    provider: 'exec: node ./../../prompts/devin.js'
 
 providers:
-  - id: 'exec: node ./../../evals/evaluate-markdown.js'
+  - id: 'exec: node ./../../prompts/evaluate-markdown.js'
     label: markdown
     prompts:
       - eval-markdown
