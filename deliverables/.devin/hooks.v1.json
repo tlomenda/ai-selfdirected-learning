@@ -1,0 +1,14 @@
+{
+  "PostToolUse": [
+    {
+      "matcher": "write|Write|edit|Edit|MultiEdit",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "./.devin/scripts/log-write.sh",
+          "timeout": 5
+        }
+      ]
+    }
+  ]
+}
