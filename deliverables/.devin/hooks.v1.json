@@ -5,7 +5,7 @@
       "hooks": [
         {
           "type": "command",
-          "command": "./.devin/scripts/log-write.sh",
+          "command": "./.devin/scripts/prd-sentinel-hook.sh",
           "timeout": 5
         }
       ]

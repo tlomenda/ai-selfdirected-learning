@@ -54,6 +54,21 @@ The audience for this PRD is a solo developer or small development team building
 
 ---
 
+After producing the PRD, write a file called `prd-sentinel.json` in the same directory as instructed to write the PRD. The file must contain:
+
+- `sections_present`: an array of the section names that appear in the PRD output
+- `word_count`: the approximate word count of the PRD body
+- `has_measurable_success_criteria`: true if the PRD contains at least one measurable success criterion with a specific numeric or behavioral target; false otherwise
+- `has_explicit_out_of_scope`: true if the PRD contains an out-of-scope section; false otherwise
+- `has_problem_statement`: true if the PRD contains a problem statement; false otherwise
+- `has_goals`: true if the PRD contains goals; false otherwise
+- `has_personas`: true if the PRD contains personas; false otherwise
+- `has_user_stories_or_use_cases`: true if the PRD contains use cases and/or user stories; false otherwise
+- `has_acceptance_criteria`: true if the PRD contains acceptance criteria; false otherwise
+- `has_nfr_with_verification`: true if the PRD contains at least one non-functional requirement with a concrete verification method; false otherwise
+
+---
+
 **Product Description:**
 {{product_description}}
 

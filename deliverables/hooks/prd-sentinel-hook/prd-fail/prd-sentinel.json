@@ -1,0 +1,18 @@
+{
+  "sections_present": [
+    "Product Overview",
+    "Non-Functional Requirements",
+    "Key Implementation Details",
+    "Open Questions",
+    "Change Log"
+  ],
+  "word_count": 287,
+  "has_measurable_success_criteria": false,
+  "has_explicit_out_of_scope": false,
+  "has_problem_statement": true,
+  "has_goals": true,
+  "has_personas": false,
+  "has_user_stories_or_use_cases": false,
+  "has_acceptance_criteria": false,
+  "has_nfr_with_verification": false
+}

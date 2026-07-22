@@ -13,10 +13,9 @@ This is a **fast, deterministic check** that prevents obviously broken PRDs from
 ```json
 {
   "sections_present": ["Product Overview", "Features", "Non-Functional Requirements", "Key Implementation Details", "Scope Boundaries", "Open Questions", "Change Log"],
-  "word_count": 700,
+  "word_count": 1000,
   "has_measurable_success_criteria": true,
   "has_explicit_out_of_scope": true,
-  "has_product_overview": true,
   "has_problem_statement": true,
   "has_goals": true,
   "has_personas": true,
@@ -33,7 +32,6 @@ This is a **fast, deterministic check** that prevents obviously broken PRDs from
 | word_count | number | ≥ 700 words | **warn** (allow continuation, but flag for review) |
 | has_measurable_success_criteria | boolean | true | **halt workflow** |
 | has_explicit_out_of_scope | boolean | true | **halt workflow** |
-| has_product_overview | boolean | true | **halt workflow** |
 | has_problem_statement | boolean | true (within Product Overview) | **halt workflow** |
 | has_goals | boolean | true (within Product Overview) | **halt workflow** |
 | has_personas | boolean | true (within Features) | **halt workflow** |

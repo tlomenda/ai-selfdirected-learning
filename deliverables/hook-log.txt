@@ -1,0 +1,35 @@
+2026-07-22T16:17:59Z  /Users/tlomenda/Developer/projects/work/improving-state-of-ai/improving-deep-learning-program/ai-selfdirected-learning/deliverables/hooks/prd-test/pomodoro-prd.md
+2026-07-22T16:18:02Z  /Users/tlomenda/Developer/projects/work/improving-state-of-ai/improving-deep-learning-program/ai-selfdirected-learning/deliverables/hooks/prd-test/prd-sentinel.json
+[2026-07-22T16:43:08Z] FAIL: prd-sentinel.json not found. PRD command may not have completed.
+[2026-07-22T16:49:09Z] PASS: PRD sentinel checks passed.
+[2026-07-22T16:49:38Z] FAIL: PRD does not contain measurable success criteria.
+[2026-07-22T16:50:01Z] FAIL: PRD does not contain an explicit out-of-scope section.
+[2026-07-22T16:55:10Z] FAIL: PRD does not contain measurable success criteria.
+[2026-07-22T16:55:10Z] FAIL: PRD does not contain a clear problem statement.
+[2026-07-22T16:55:10Z] FAIL: PRD does not contain attainable goals.
+[2026-07-22T16:55:10Z] FAIL: PRD does not identify target user personas.
+[2026-07-22T16:55:10Z] FAIL: PRD does not contain detailed user stories or use cases.
+[2026-07-22T16:55:10Z] FAIL: PRD does not contain useful acceptance criteria.
+[2026-07-22T16:55:10Z] FAIL: PRD does not contain verified non-functional requirements.
+[2026-07-22T16:55:10Z] FAIL: PRD does not contain an explicit out-of-scope section.
+[2026-07-22T16:55:10Z] FAIL: PRD word count (200) does not exceed 1000.
+[2026-07-22T16:55:10Z] FAIL: One or more PRD sentinel checks failed.
+[2026-07-22T16:55:36Z] FAIL: PRD word count (200) does not exceed 1000.
+[2026-07-22T16:55:36Z] FAIL: One or more PRD sentinel checks failed.
+[2026-07-22T16:56:08Z] PASS: PRD sentinel checks passed.
+[2026-07-22T16:56:40Z] FAIL: PRD is missing required section(s): Product Overview, Features, Non-Functional Requirements, Key Implementation Details, Scope Boundaries, Open Questions, Change Log
+[2026-07-22T16:56:40Z] FAIL: One or more PRD sentinel checks failed.
+[2026-07-22T16:57:23Z] FAIL: PRD is missing required section(s): Features, Non-Functional Requirements, Key Implementation Details, Scope Boundaries, Open Questions, Change Log
+[2026-07-22T16:57:23Z] FAIL: One or more PRD sentinel checks failed.
+[2026-07-22T16:58:50Z] PASS: PRD sentinel checks passed.
+[2026-07-22T16:58:55Z] PASS: PRD sentinel checks passed.
+[2026-07-22T17:06:49Z] PASS: PRD sentinel checks passed.
+[2026-07-22T17:11:56Z] FAIL: PRD does not contain measurable success criteria.
+[2026-07-22T17:11:56Z] FAIL: PRD does not identify target user personas.
+[2026-07-22T17:11:56Z] FAIL: PRD does not contain detailed user stories or use cases.
+[2026-07-22T17:11:56Z] FAIL: PRD does not contain useful acceptance criteria.
+[2026-07-22T17:11:56Z] FAIL: PRD does not contain verified non-functional requirements.
+[2026-07-22T17:11:56Z] FAIL: PRD does not contain an explicit out-of-scope section.
+[2026-07-22T17:11:56Z] FAIL: PRD word count (287) does not exceed 1000.
+[2026-07-22T17:11:56Z] FAIL: PRD is missing required section(s): Features, Scope Boundaries
+[2026-07-22T17:11:56Z] FAIL: One or more PRD sentinel checks failed.
