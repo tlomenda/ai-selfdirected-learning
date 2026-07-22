@@ -14,7 +14,7 @@ You have completed this program when you can submit the following:
 - [x] Model Ladder progression documented for at least 1 command (starting delta → hypothesis → change → resulting delta)
 - [x] DevLog pipeline run output (all seven stages) and pipeline run notes
 - [x] Blackjack kata pipeline run output and comparison notes
-- [ ] At least one skill file converted from a command, with invocation test cases
+- [x] At least one skill file converted from a command, with invocation test cases
 - [ ] Sentinel file schema for at least one command
 - [ ] Hook script with deterministic pass/fail logic
 - [ ] Two-step governed flow, tested across all four scenarios
@@ -49,8 +49,8 @@ You have completed this program when you can submit the following:
 - [x] Blackjack kata pipeline run output files and `blackjack-pipeline-run-notes.md`
 
 **Module 3:**
-- [ ] `skill-readiness-assessment.md`
-- [ ] Skill file with invocation test file
+- [x] `skill-readiness-assessment.md`
+- [x] Skill file with invocation test file
 - [ ] Sentinel file schema
 - [ ] Hook script
 - [ ] `governed-flow-test-results.md`
