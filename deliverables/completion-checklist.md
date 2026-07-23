@@ -15,9 +15,9 @@ You have completed this program when you can submit the following:
 - [x] DevLog pipeline run output (all seven stages) and pipeline run notes
 - [x] Blackjack kata pipeline run output and comparison notes
 - [x] At least one skill file converted from a command, with invocation test cases
-- [ ] Sentinel file schema for at least one command
-- [ ] Hook script with deterministic pass/fail logic
-- [ ] Two-step governed flow, tested across all four scenarios
+- [x] Sentinel file schema for at least one command
+- [x] Hook script with deterministic pass/fail logic
+- [x] Two-step governed flow, tested across all four scenarios
 - [] Kata stress test - conway's game of life (create-arch)
 - [x] Kata stress test - tic-tac-toe (create-ux)
 - [] Kata stress test - Snake with Replay (create-epics-stories)
@@ -25,8 +25,8 @@ You have completed this program when you can submit the following:
 
 
 **Written deliverables:**
-- [ ] Automation spectrum assessment for your artifact set
-- [ ] Governance explanation paragraph (written for a non-technical manager)
+- [x] Automation spectrum assessment for your artifact set
+- [x] Governance explanation paragraph (written for a non-technical manager)
 - [ ] Behavior change reflection: which artifacts are in your active daily workflow
 - [x] Self-assessment against the four DLP Completion criteria (Craft, Evaluate, Iterate, Adopt)
 
@@ -51,11 +51,11 @@ You have completed this program when you can submit the following:
 **Module 3:**
 - [x] `skill-readiness-assessment.md`
 - [x] Skill file with invocation test file
-- [ ] Sentinel file schema
-- [ ] Hook script
-- [ ] `governed-flow-test-results.md`
-- [ ] `automation-spectrum-assessment.md`
-- [ ] `governance-explanation.md`
+- [x] Sentinel file schema
+- [x] Hook script
+- [x] `governed-flow-test-results.md`
+- [x] `automation-spectrum-assessment.md`
+- [x] `governance-explanation.md`
 
 **Module 4:**
 - [ ] Handoff checklist applied and all failures fixed

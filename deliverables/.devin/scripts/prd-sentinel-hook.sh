@@ -39,7 +39,7 @@ fail_if_false() {
   local message="$2"
   if [ "$value" != "true" ]; then
     echo "[$TIMESTAMP] FAIL: $message" | tee -a "$LOG_FILE" >&2
-    EXIT_CODE=1
+    EXIT_CODE=2
   fi
 }
 
@@ -57,7 +57,7 @@ WORD_COUNT=$(jq -r '.word_count // 0' "$SENTINEL_FILE")
 if [ "$WORD_COUNT" -le 1000 ]; then
   MSG="[$TIMESTAMP] FAIL: PRD word count ($WORD_COUNT) does not exceed 1000."
   echo "$MSG" | tee -a "$LOG_FILE" >&2
-  EXIT_CODE=1
+  EXIT_CODE=2
 fi
 
 # --- Required sections check ---
@@ -84,13 +84,39 @@ if [ ${#MISSING_SECTIONS[@]} -gt 0 ]; then
   MISSING_LIST=${MISSING_LIST:2}
   MSG="[$TIMESTAMP] FAIL: PRD is missing required section(s): $MISSING_LIST"
   echo "$MSG" | tee -a "$LOG_FILE" >&2
-  EXIT_CODE=1
+  EXIT_CODE=2
 fi
 
+PROJECT_DIR="${DEVIN_PROJECT_DIR:-$(pwd)}"
+TARGET_DIR=$(dirname "$SENTINEL_FILE")
+PRD_FILE="$TARGET_DIR/prd.md"
+ARCH_PROMPT="$PROJECT_DIR/prompts/1-create-arch/create-architecture.md"
+ARCH_FILE="$TARGET_DIR/architecture.md"
+
 if [ "$EXIT_CODE" -eq 0 ]; then
-  echo "[$TIMESTAMP] PASS: PRD sentinel checks passed." | tee -a "$LOG_FILE"
+  echo "[$TIMESTAMP] PASS: PRD sentinel checks passed." | tee -a "$LOG_FILE" >&2
+  echo "[$TIMESTAMP] GO: Triggering create-architecture.md for $TARGET_DIR." | tee -a "$LOG_FILE" >&2
+
+  cat <<JSON
+  {
+    "hookSpecificOutput": {
+      "hookEventName": "PostToolUse",
+      "additionalContext": "GO DECISION: PRD sentinel checks passed for $PRD_FILE. Ask the user to provide the product description file path and the tech stack file path to use for create-architecture.md. Wait for the user's response. Once both paths are provided, run the create-architecture.md prompt ($ARCH_PROMPT) using $PRD_FILE, the provided product description file, and the provided tech stack file as inputs. Write architecture.md and arch-sentinel.json in $TARGET_DIR."
+    }
+  }
+JSON
 else
   echo "[$TIMESTAMP] FAIL: One or more PRD sentinel checks failed." | tee -a "$LOG_FILE" >&2
+  echo "[$TIMESTAMP] HALT: Workflow stopped. Please review and fix $PRD_FILE, then re-run the create-prd step." | tee -a "$LOG_FILE" >&2
+
+  cat <<JSON
+  {
+    "hookSpecificOutput": {
+      "hookEventName": "PostToolUse",
+      "additionalContext": "NO-GO DECISION: PRD sentinel checks failed. Halt the workflow and prompt the human to review and fix $PRD_FILE before continuing. Do not run create-architecture.md until the PRD passes the sentinel checks."
+    }
+  }
+JSON
 fi
- 
+
 exit $EXIT_CODE

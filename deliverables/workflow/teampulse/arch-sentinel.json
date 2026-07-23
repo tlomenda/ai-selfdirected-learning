@@ -1,0 +1,26 @@
+{
+  "sections_present": [
+    "High-Level Architecture",
+    "System Context Map",
+    "System Breakdown",
+    "Conceptual Database Design",
+    "Integrations",
+    "Security Considerations",
+    "Quality Attributes",
+    "Deployment View",
+    "Architecture Decisions and Trade-offs",
+    "Open Architecture Questions"
+  ],
+  "word_count": 2156,
+  "has_system_context_map": true,
+  "has_c4_system_context_diagram": true,
+  "has_c4_container_diagram": true,
+  "has_c4_component_diagram": true,
+  "has_flow_diagram": true,
+  "has_integrations": true,
+  "has_integration_patterns": true,
+  "has_quality_attributes": true,
+  "has_deployment": true,
+  "has_security_considerations": true,
+  "has_architecture_decisions": true
+}

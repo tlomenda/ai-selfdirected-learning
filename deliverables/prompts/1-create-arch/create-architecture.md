@@ -50,6 +50,24 @@ Consider key architectural decisions (ADRs), trade-offs, or areas that require f
 
 ---
 
+After producing the ARCHITECTURE document, write a file called `arch-sentinel.json` in the same directory as instructed to write the ARCHITECTURE document. The file must contain:
+
+- `sections_present`: an array of the section names that appear in the ARCHITECTURE output
+- `word_count`: the approximate word count of the ARCHITECTURE body
+- `has_system_context_map`: true if the ARCHITECTURE contains a system context map; false otherwise
+- `has_c4_system_context_diagram`: true if the ARCHITECTURE contains a C4 system context diagram; false otherwise
+- `has_c4_container_diagram`: true if the ARCHITECTURE contains a C4 container diagram; false otherwise
+- `has_c4_component_diagram`: true if the ARCHITECTURE contains a C4 component diagram; false otherwise
+- `has_flow_diagram`: true if the ARCHITECTURE contains a flow diagram; false otherwise
+- `has_integrations`: true if the ARCHITECTURE contains integrations; false otherwise
+- `has_integration_patterns`: true if the ARCHITECTURE contains integration patterns; false otherwise
+- `has_quality_attributes`: true if the ARCHITECTURE contains quality attributes (performance, reliability, availability, scalability, maintainability); false otherwise
+- `has_deployment`: true if the ARCHITECTURE contains deployment; false otherwise
+- `has_security_considerations`: true if the ARCHITECTURE contains security considerations; false otherwise
+- `has_architecture_decisions`: true if the ARCHITECTURE contains architecture decisions; false otherwise
+
+---
+
 **Product Description:**
 {{product_description}}
 

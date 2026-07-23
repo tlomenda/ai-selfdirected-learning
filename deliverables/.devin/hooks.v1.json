@@ -9,6 +9,16 @@
           "timeout": 5
         }
       ]
+    },
+    {
+      "matcher": "write|Write|edit|Edit|MultiEdit",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "./.devin/scripts/arch-sentinel-hook.sh",
+          "timeout": 5
+        }
+      ]
     }
   ]
 }
