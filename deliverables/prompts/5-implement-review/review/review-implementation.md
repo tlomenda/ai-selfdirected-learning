@@ -1,3 +1,13 @@
+<!--
+What it does: Prompts an LLM acting as a Senior Software Engineer to conduct a rigorous code review of an implementation against its story, technical plan, and acceptance criteria, producing a structured review report with pass/fail per criterion, specific file/line references, and a clear verdict.
+
+When to use it: Use after a story has been implemented and before merging, to evaluate whether the code satisfies the acceptance criteria and follows the technical plan.
+
+Expected input format: Markdown Story, Technical Plan, and Code Implementation inserted into the `{{story}}`, `{{technical_plan}}`, and `{{code_implementation}}` placeholders. The Promptfoo harness typically loads these from the story file, plan file, and the implementation output file.
+
+Test file location: `prompts/5-implement-review/review/review-implementation-promptfoo.yaml`
+-->
+
 # Review Implementation
 
 ## Role

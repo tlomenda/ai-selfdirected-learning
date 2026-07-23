@@ -1,3 +1,13 @@
+<!--
+What it does: Prompts an LLM acting as an experienced Product Manager to decompose a PRD, Architecture Document, and UX Specification into a complete backlog of epics and user/technical/spike stories with Gherkin acceptance criteria and dependencies.
+
+When to use it: Use after the PRD, Architecture Document, and UX Specification exist and before planning and implementation, to produce a scoped, traceable backlog.
+
+Expected input format: Markdown PRD, Architecture Document, and UX Specification inserted into the `{{product_prd}}`, `{{architecture_document}}`, and `{{ux_specification}}` placeholders. The Promptfoo harness typically loads these from the pipeline stage outputs for the domain.
+
+Test file location: `prompts/3-create-epics-stories/create-epics-stories-promptfoo.yaml`
+-->
+
 # Create Epics and Stories
 
 ## Role

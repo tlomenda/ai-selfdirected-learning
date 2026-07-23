@@ -1,3 +1,13 @@
+<!--
+What it does: Prompts an LLM acting as a Senior Software Engineer to produce a concise, actionable technical implementation plan for a single user or technical story, including affected components, data/API changes, implementation steps, testing strategy, and risks.
+
+When to use it: Use after a story has been selected from the backlog and before implementation/coding, to define how the story will be built against the existing architecture and tech stack.
+
+Expected input format: Markdown PRD, Architecture Document, UX Specification, Tech Stack, and the selected Story inserted into the `{{product_prd}}`, `{{architecture_document}}`, `{{ux_specification}}`, `{{tech_stack}}`, and `{{story}}` placeholders. The Promptfoo harness typically loads these from the pipeline stage outputs for the domain.
+
+Test file location: `prompts/4-plan-story/plan-story-promptfoo.yaml`
+-->
+
 # Plan Story
 
 ## Role

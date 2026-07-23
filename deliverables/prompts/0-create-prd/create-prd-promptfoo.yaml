@@ -41,6 +41,7 @@ tests:
   # TC-P1: PRD Structure and Completeness (Pomodoro)
   - description: "PRD Structure and Completeness (Pomodoro)"
     vars:
+      markdown_content: file://prd.md
       product_description: file://../../katas/pomodoro/product-pomodoro.md
     assert:
       - type: llm-rubric

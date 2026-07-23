@@ -1,3 +1,13 @@
+<!--
+What it does: Prompts an LLM acting as a Senior Solutions Architect to produce an implementation-ready Architecture Document (Solution Design Document) with C4 and DDD diagrams, data models, integrations, and quality attributes derived from a PRD and tech stack.
+
+When to use it: Use after the PRD is finalized and before UX specification, epics/stories, or implementation work, to establish the technical blueprint.
+
+Expected input format: Markdown documents inserted into the `{{product_description}}`, `{{product_prd}}`, and `{{tech_stack}}` placeholders. The Promptfoo harness typically loads these from the domain kata files and the project's tech stack file.
+
+Test file location: `prompts/1-create-arch/create-arch-promptfoo.yaml`
+-->
+
 # Create Architecture
 
 ## Role

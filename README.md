@@ -1,6 +1,23 @@
 # My AI Self-Directed Learning
 
-## Promptfoo Good Practices
+## Project Structure
+
+This project is organized into the following directories:
+
+- `completion-checks/` - Completion checks with reflections and checklists
+- `deliverables/` - Course deliverables and outputs
+  - `.devin/hooks.v1.json` - Devin hooks configuration and scripts
+  - `app/` - Application tech stacks and code styles for the prompt commands and skills
+  - `hooks/` - Devin hooks development and testing
+  - `kata/` - Product descriptions and course related exercises (SDLC pipelines, stress testing, etc)
+  - `prompts/` - Prompt templates and examples
+  - `skills/` - plan-story skill conversion, development, testing, and final SKILL.md file
+  - `workflow/` - Governed workflow results and assessment
+- `exercises-scratchpad/` - Scratch space for exercises and experiments. I used this early in the course before moving to the `deliverables/` directory.
+
+---
+
+## Promptfoo "Good" Practices
 
 - Always run `promptfoo eval` with `--no-cache` to ensure fresh evaluations
 

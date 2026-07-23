@@ -1,3 +1,13 @@
+<!--
+What it does: Prompts an LLM acting as a Product Manager to write a developer-ready Product Requirements Document (PRD) from a product description.
+
+When to use it: Use at the start of the SDLC pipeline, after a product description exists and before architecture, UX, epics, implementation, or review work begins.
+
+Expected input format: A markdown product description inserted in place of the `{{product_description}}` placeholder. The Promptfoo harness typically loads this from `../../katas/<domain>/product-<domain>.md`.
+
+Test file location: `prompts/0-create-prd/create-prd-promptfoo.yaml`
+-->
+
 # Create PRD
 
 ## Role

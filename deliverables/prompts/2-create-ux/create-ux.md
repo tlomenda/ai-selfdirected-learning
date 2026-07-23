@@ -1,3 +1,13 @@
+<!--
+What it does: Prompts an LLM acting as a Senior UX Designer to produce a developer-ready UX Specification that defines user flows, screen specs, interaction design, accessibility, and edge cases from a PRD.
+
+When to use it: Use after the PRD is ready (and ideally alongside or after the Architecture Document), before epics/stories and implementation planning, to define how users interact with the product.
+
+Expected input format: Markdown product description and PRD inserted into the `{{product_description}}` and `{{product_prd}}` placeholders. The Promptfoo harness typically loads these from the domain kata files.
+
+Test file location: `prompts/2-create-ux/create-ux-promptfoo.yaml`
+-->
+
 # Create UX
 
 ## Role

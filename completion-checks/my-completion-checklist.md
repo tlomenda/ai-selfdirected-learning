@@ -18,16 +18,16 @@ You have completed this program when you can submit the following:
 - [x] Sentinel file schema for at least one command
 - [x] Hook script with deterministic pass/fail logic
 - [x] Two-step governed flow, tested across all four scenarios
-- [] Kata stress test - conway's game of life (create-arch)
+- [x] Kata stress test - conway's game of life (create-arch)
 - [x] Kata stress test - tic-tac-toe (create-ux)
-- [] Kata stress test - Snake with Replay (create-epics-stories)
-- [] Kata stress test - Sorting Algorithm Visualizer (plan-story)
+- [x] Kata stress test - Snake with Replay (create-epics-stories)
+- [x] Kata stress test - Sorting Algorithm Visualizer (plan-story)
 
 
 **Written deliverables:**
 - [x] Automation spectrum assessment for your artifact set
 - [x] Governance explanation paragraph (written for a non-technical manager)
-- [ ] Behavior change reflection: which artifacts are in your active daily workflow
+- [x] Behavior change reflection: which artifacts are in your active daily workflow
 - [x] Self-assessment against the four DLP Completion criteria (Craft, Evaluate, Iterate, Adopt)
 
 ### Module Focused Checklist
@@ -58,7 +58,7 @@ You have completed this program when you can submit the following:
 - [x] `governance-explanation.md`
 
 **Module 4:**
-- [ ] Handoff checklist applied and all failures fixed
-- [ ] `behavior-change-reflection.md`
-- [ ] `completion-self-assessment.md` with all four criteria addressed
-- [ ] `stage-evaluation.md` — AI Adoption Stage scores (7 dimensions + total) and two-paragraph reflection
+- [x] Handoff checklist applied and all failures fixed
+- [x] `behavior-change-reflection.md`
+- [x] `completion-self-assessment.md` with all four criteria addressed
+- [x] `stage-evaluation.md` — AI Adoption Stage scores (7 dimensions + total) and two-paragraph reflection

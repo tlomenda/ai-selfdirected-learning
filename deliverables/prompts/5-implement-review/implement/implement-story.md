@@ -1,3 +1,13 @@
+<!--
+What it does: Prompts an LLM acting as a Senior Software Engineer to implement a user or technical story by writing production-quality code and tests based on the story, technical plan, tech stack, and coding guidelines.
+
+When to use it: Use after a story has a Technical Plan and before code review, to generate the implementation and its test suite.
+
+Expected input format: Markdown Tech Stack, Coding Guidelines, Story, and Technical Plan inserted into the `{{tech_stack}}`, `{{coding_guidelines}}`, `{{story}}`, and `{{technical_plan}}` placeholders. The Promptfoo harness typically loads the tech stack from `app/techstack/` and coding guidelines from `app/codestyle/` (frontend, backend, and DB files concatenated into `{{coding_guidelines}}`).
+
+Test file location: `prompts/5-implement-review/implement/implement-story-promptfoo.yaml`
+-->
+
 # Implement Story
 
 ## Role
