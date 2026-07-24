@@ -111,7 +111,7 @@ tests:
   # TC-P5: Notification and Audio Permission Flows (Pomodoro)
   - description: "Notification and Audio Permission Flows (Pomodoro)"
     vars:
-      product_description: file://../../katas/product-pomodoro.md
+      product_description: file://../../katas/pomodoro/product-pomodoro.md
     assert:
       - type: llm-rubric
         value: "PRD states whether audio and notification requirements."
