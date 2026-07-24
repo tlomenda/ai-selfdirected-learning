@@ -1,0 +1,20 @@
+- id: 'exec: node ./../eval-config/evaluate-markdown.js'
+  label: markdown
+  prompts:
+    - eval-markdown
+  config:
+    model: markdown
+
+- id: 'exec: node ./../eval-config/devin.js'
+  label: sonnet
+  prompts:
+    - eval-prompt
+  config:
+    model: sonnet
+
+- id: 'exec: node ./../eval-config/devin.js'
+  label: haiku
+  prompts:
+    - eval-prompt
+  config:
+    model: haiku

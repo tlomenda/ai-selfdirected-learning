@@ -10,27 +10,11 @@ prompts:
 
 defaultTest:
   options:
-    provider: 'exec: node ./../../devin.js'
+    provider: 'exec: node ./../eval-config/devin.js'
 
+# Providers are loaded from ../eval-config. Paths are relative to this file.
 providers:
-  - id: 'exec: node ./../../evaluate-markdown.js'
-    label: markdown
-    prompts:
-      - eval-markdown
-    config:
-      model: markdown
-  - id: 'exec: node ./../../devin.js'
-    label: sonnet
-    prompts:
-      - eval-prompt
-    config:
-      model: sonnet
-  - id: 'exec: node ./../../devin.js'
-    label: haiku
-    prompts:
-      - eval-prompt
-    config:
-      model: haiku
+  - file://../eval-config/providers.yaml
 
 tests:
   # ==========================================================================
@@ -39,9 +23,9 @@ tests:
   - description: "Review Implementation of a user story for TeamPulse"
     vars:
       # markdown_content: file://review-result.md
-      story: file://../UC-3.3-Story.md
-      technical_plan: file://../UC-3.3-Plan.md
-      code_implementation: file://../implement/implement-story-result-rd2.md
+      story: file://UC-3.3-Story.md
+      technical_plan: file://UC-3.3-Plan.md
+      code_implementation: file://../5-implement/implement-story-result-rd2.md
     assert:
       - type: llm-rubric
         value: "Pass/fail per acceptance criterion"

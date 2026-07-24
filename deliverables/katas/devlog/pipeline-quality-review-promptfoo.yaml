@@ -8,10 +8,10 @@ prompts:
 # Route llm-rubric grading through the Devin CLI — no API key needed
 defaultTest:
   options:
-    provider: 'exec: node ./../../prompts/devin.js'
+    provider: 'exec: node ./../../prompts/eval-config/devin.js'
 
 providers:
-  - id: 'exec: node ./../../prompts/evaluate-markdown.js'
+  - id: 'exec: node ./../../prompts/eval-config/evaluate-markdown.js'
     label: markdown
     prompts:
       - eval-markdown
@@ -151,7 +151,7 @@ tests:
   # TC-T5: Plan Story Quality Checks
   - description: "Plan Story for PERN stack (DevLog)"
     vars:
-      markdown_content: file://sdlc-pipeline/devlog-us1-1-plan.md
+      markdown_content: file://sdlc-pipeline/us-1.1-plan.md
     assert:
       - type: contains-any
         value:
@@ -170,7 +170,7 @@ tests:
   # TC-T6: Implement Story Plan
   - description: "Implement a user story (DevLog)"
     vars:
-      markdown_content: file://sdlc-pipeline/devlog-us1-1-implementation.md
+      markdown_content: file://sdlc-pipeline/us-1.1-implementation.md
     assert:
       - type: llm-rubric
         value: "Non-trivial logic derived from the user story and technical plan has a unit test"
@@ -193,7 +193,7 @@ tests:
   # TC-T7: Review Implementation
   - description: "Review implementation (DevLog)"
     vars:
-      markdown_content: file://sdlc-pipeline/devlog-us1-1-review.md
+      markdown_content: file://sdlc-pipeline/us-1.1-review.md
     assert:
       - type: llm-rubric
         value: "Pass/fail per acceptance criterion"

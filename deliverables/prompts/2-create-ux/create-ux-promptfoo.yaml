@@ -2,21 +2,16 @@
 description: EDD - Create UX Specification Document
 
 prompts:
-  - file://create-ux.md
+  - id: file://create-ux.md
+    label: eval-prompt
 
 defaultTest:
   options:
-    provider: 'exec: node ./../devin.js'
+    provider: 'exec: node ./../eval-config/devin.js'
 
+# Providers are loaded from ../eval-config. Paths are relative to this file.
 providers:
-  - id: 'exec: node ./../devin.js'
-    label: sonnet
-    config:
-      model: sonnet
-  - id: 'exec: node ./../devin.js'
-    label: haiku
-    config:
-      model: haiku
+  - file://../eval-config/providers.yaml
 
 tests:
   # ==========================================================================

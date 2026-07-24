@@ -10,27 +10,11 @@ prompts:
 # Route llm-rubric grading through the Devin CLI — no API key needed
 defaultTest:
   options:
-    provider: 'exec: node ./../devin.js'
+    provider: 'exec: node ./../eval-config/devin.js'
 
+# Providers are loaded from ../eval-config. Paths are relative to this file.
 providers:
-  - id: 'exec: node ./../evaluate-markdown.js'
-    label: markdown
-    prompts:
-      - eval-markdown
-    config:
-      model: markdown
-  - id: 'exec: node ./../devin.js'
-    label: sonnet
-    prompts:
-      - eval-prompt
-    config:
-      model: sonnet
-  - id: 'exec: node ./../devin.js'
-    label: haiku
-    prompts:
-      - eval-prompt
-    config:
-      model: haiku
+  - file://../eval-config/providers.yaml
 
 tests:
   # ==========================================================================
@@ -41,7 +25,6 @@ tests:
   # TC-P1: PRD Structure and Completeness (Pomodoro)
   - description: "PRD Structure and Completeness (Pomodoro)"
     vars:
-      markdown_content: file://prd.md
       product_description: file://../../katas/pomodoro/product-pomodoro.md
     assert:
       - type: llm-rubric

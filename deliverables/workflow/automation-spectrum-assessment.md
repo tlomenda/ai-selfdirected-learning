@@ -1,4 +1,4 @@
-## Automation Spectrum Assessment — [date]
+## Automation Spectrum Assessment — Jul 23
 
 For each command, answer: Is it ready to be a skill? Would a sentinel file add value?
 What would team consensus look like before sharing it?
